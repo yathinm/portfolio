@@ -37,7 +37,7 @@ html, body {
   width: 0.6ch;
   height: 1em;
   margin-left: 0.1ch;
-  background: #000;
+  background: currentColor;
   vertical-align: bottom;
   animation: blink 1s step-end infinite;
 }
@@ -64,6 +64,7 @@ html, body {
 
 .animated-title {
   font-size: 0.8em;
+  color: #3f5a36;
 }
 
 @font-face {
