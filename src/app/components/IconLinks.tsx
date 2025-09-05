@@ -1,6 +1,7 @@
 "use client";
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function IconLinks() {
   return (
@@ -18,6 +19,13 @@ export default function IconLinks() {
         className="text-accent-charcoal hover:text-accent-greyDark hover:scale-115 transition-all duration-250 ease-out"
       >
         <FaGithub className="text-4xl" />
+      </a>
+      <a
+        href="mailto:yathinm@gmail.com"
+        aria-label="Email"
+        className="text-accent-charcoal hover:text-accent-greyDark hover:scale-115 transition-all duration-250 ease-out"
+      >
+        <MdEmail className="text-4xl" />
       </a>
     </div>
   );
