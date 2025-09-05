@@ -9,21 +9,24 @@ export default function IconLinks() {
       <a
         target="_blank"
         href="https://www.linkedin.com/in/yathinmrudul"
-        className="text-accent-charcoal hover:text-accent-greyDark hover:scale-115 transition-all duration-250 ease-out"
+        className="hover:scale-115 transition-all duration-250 ease-out"
+        style={{ color: '#3f5a36' }}
       >
         <FaLinkedin className="text-4xl" />
       </a>
       <a
         target="_blank"
         href="https://github.com/yathinm"
-        className="text-accent-charcoal hover:text-accent-greyDark hover:scale-115 transition-all duration-250 ease-out"
+        className="hover:scale-115 transition-all duration-250 ease-out"
+        style={{ color: '#3f5a36' }}
       >
         <FaGithub className="text-4xl" />
       </a>
       <a
         href="mailto:yathinm@gmail.com"
         aria-label="Email"
-        className="text-accent-charcoal hover:text-accent-greyDark hover:scale-115 transition-all duration-250 ease-out"
+        className="hover:scale-115 transition-all duration-250 ease-out"
+        style={{ color: '#3f5a36' }}
       >
         <MdEmail className="text-4xl" />
       </a>
