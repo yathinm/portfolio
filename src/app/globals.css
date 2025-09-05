@@ -31,3 +31,21 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 0.6ch;
+  height: 1em;
+  margin-left: 0.1ch;
+  background: #000;
+  vertical-align: bottom;
+  animation: blink 1s step-end infinite;
+}
+
+.typewriter-cursor.no-blink {
+  animation: none;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

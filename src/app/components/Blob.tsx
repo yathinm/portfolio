@@ -19,14 +19,16 @@ function FollowBlob() {
 
   useFrame((state, delta) => {
     if (!meshRef.current) return
-    const targetX = state.pointer.x * 2.0
-    const targetY = state.pointer.y * 1.6
+    const { width } = state.viewport
+    const baseX = width * 0.25
+    const targetX = baseX + state.pointer.x * 0.6
+    const targetY = state.pointer.y * 0.6
     const followSpeed = 8
     const rotateSpeed = 4
     meshRef.current.position.x += (targetX - meshRef.current.position.x) * followSpeed * delta
     meshRef.current.position.y += (targetY - meshRef.current.position.y) * followSpeed * delta
-    meshRef.current.rotation.y += (targetX - meshRef.current.rotation.y) * rotateSpeed * delta
-    meshRef.current.rotation.x += (-targetY - meshRef.current.rotation.x) * rotateSpeed * delta
+    meshRef.current.rotation.y += ((targetX - baseX) - meshRef.current.rotation.y) * rotateSpeed * delta
+    meshRef.current.rotation.x += ((-targetY) - meshRef.current.rotation.x) * rotateSpeed * delta
   })
 
   return (
@@ -35,8 +37,8 @@ function FollowBlob() {
       <MeshDistortMaterial
         speed={4}
         distort={0.6}
-        transmission={1}
-        roughness={0.05}
+        transmission={.2}
+        roughness={0}
         thickness={0.6}
         color="#ffffff"
       />
