@@ -12,7 +12,10 @@ interface AnimatedTitleProps {
 
 export default function AnimatedTitle({
   texts = [
-    'Yathin Mrudul'
+    'Yathin Mrudul',
+    'Software Engineer',
+    'Sacramento Kings Fan',
+    'Daniel Caesar Enthusiast'
   ],
   typeSpeed = 80,
   deleteSpeed = 50,

@@ -9,7 +9,7 @@ export default function Home() {
       <div style={{ position: "absolute", top: "50%", left: "6%", transform: "translateY(-50%)", color: "#000", zIndex: 10 }}>
         <div className="flex flex-col items-start gap-4">
           <div className="title-strong leading-none">
-            <AnimatedTitle />
+            <AnimatedTitle className="animated-title" />
           </div>
           <IconLinks />
         </div>
