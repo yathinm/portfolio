@@ -16,19 +16,35 @@ export default function Blob() {
 
 function FollowBlob() {
   const meshRef = useRef<THREE.Mesh>(null)
+  const velocityRef = useRef(new THREE.Vector3(0, 0, 0))
 
   useFrame((state, delta) => {
     if (!meshRef.current) return
     const { width } = state.viewport
     const baseX = width * 0.25
-    const targetX = baseX + state.pointer.x * 0.6
-    const targetY = state.pointer.y * 0.6
-    const followSpeed = 8
-    const rotateSpeed = 4
-    meshRef.current.position.x += (targetX - meshRef.current.position.x) * followSpeed * delta
-    meshRef.current.position.y += (targetY - meshRef.current.position.y) * followSpeed * delta
-    meshRef.current.rotation.y += ((targetX - baseX) - meshRef.current.rotation.y) * rotateSpeed * delta
-    meshRef.current.rotation.x += ((-targetY) - meshRef.current.rotation.x) * rotateSpeed * delta
+    const targetX = baseX + state.pointer.x * 0.9
+    const targetY = state.pointer.y * 0.9
+
+    // Spring-like follow for a trailing effect (not attached to cursor)
+    const stiffness = 10 // stronger attraction towards target
+    const damping = 0.92 // retain a bit more velocity
+    const velocity = velocityRef.current
+
+    // accelerate towards target
+    velocity.x += (targetX - meshRef.current.position.x) * stiffness * delta
+    velocity.y += (targetY - meshRef.current.position.y) * stiffness * delta
+    // dampen velocity
+    velocity.multiplyScalar(damping)
+    // integrate position
+    meshRef.current.position.x += velocity.x * delta
+    meshRef.current.position.y += velocity.y * delta
+
+    // Smooth rotation follows actual blob position (adds inertia)
+    const rotateSpeed = 3
+    const targetRotY = (meshRef.current.position.x - baseX) * 0.4
+    const targetRotX = (-meshRef.current.position.y) * 0.4
+    meshRef.current.rotation.y += (targetRotY - meshRef.current.rotation.y) * rotateSpeed * delta
+    meshRef.current.rotation.x += (targetRotX - meshRef.current.rotation.x) * rotateSpeed * delta
   })
 
   return (
