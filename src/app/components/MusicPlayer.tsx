@@ -95,20 +95,19 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
           )}
         </button>
 
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, overflow: "hidden", maxWidth: "100%" }}>
           <WaveSurferPlayer
             key={src}
-            height={76}
+            height={64}
             barWidth={2}
             barGap={2}
             barRadius={2}
             waveColor="#cfe0c8"
             progressColor="#3f5a36"
             url={src}
-            backend="WebAudio"
+            backend="MediaElement"
             cursorColor="#3f5a36"
             interact={true}
-            normalize={true}
             fillParent={true}
             autoScroll={false}
             autoCenter={false}
