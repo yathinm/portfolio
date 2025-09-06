@@ -12,6 +12,17 @@ async function fetchSongs(): Promise<{ title: string; url: string }[]> {
   return data.songs ?? [];
 }
 
+function shuffleArray<T>(items: T[]): T[] {
+  const array = items.slice();
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
 export default function MusicPage() {
   return (
     <main
@@ -48,9 +59,25 @@ export default function MusicPage() {
 function SongsList() {
   const [songs, setSongs] = React.useState<{ title: string; url: string }[]>([]);
 
-  React.useEffect(() => {
-    fetchSongs().then(setSongs).catch(() => setSongs([]));
+  const load = React.useCallback(() => {
+    fetchSongs()
+      .then((list) => setSongs(shuffleArray(list)))
+      .catch(() => setSongs([]));
   }, []);
+
+  React.useEffect(() => {
+    load();
+    const handleFocus = () => load();
+    const handleShow = () => load();
+    window.addEventListener('focus', handleFocus);
+    window.addEventListener('pageshow', handleShow);
+    document.addEventListener('visibilitychange', handleShow);
+    return () => {
+      window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('pageshow', handleShow);
+      document.removeEventListener('visibilitychange', handleShow);
+    };
+  }, [load]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 32, marginTop: 24 }}>
