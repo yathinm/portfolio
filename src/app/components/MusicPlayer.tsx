@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import WaveSurferPlayer from "@wavesurfer/react";
 import { CiPlay1, CiPause1 } from "react-icons/ci";
 
@@ -14,6 +14,7 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const playerIdRef = useRef<string>(Math.random().toString(36).slice(2));
 
   const onReady = (ws: any) => {
     wavesurferRef.current = ws;
@@ -27,9 +28,32 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
   const togglePlay = () => {
     const ws = wavesurferRef.current;
     if (!ws) return;
-    ws.isPlaying() ? ws.pause() : ws.play();
+    if (ws.isPlaying()) {
+      ws.pause();
+    } else {
+      // Notify other players to pause before starting this one
+      try {
+        window.dispatchEvent(new CustomEvent("music-player:request-play", { detail: { id: playerIdRef.current } }));
+      } catch {}
+      ws.play();
+    }
     setIsPlaying(ws.isPlaying());
   };
+
+  // Listen for global play requests from other players and pause this one if necessary
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { id?: string } | undefined;
+      if (!detail || detail.id === playerIdRef.current) return;
+      const ws = wavesurferRef.current;
+      if (ws && ws.isPlaying()) {
+        ws.pause();
+        setIsPlaying(false);
+      }
+    };
+    window.addEventListener("music-player:request-play", handler);
+    return () => window.removeEventListener("music-player:request-play", handler);
+  }, []);
 
   const formatTime = (t: number) => {
     const sec = Math.max(0, Math.floor(t || 0));
