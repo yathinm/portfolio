@@ -12,7 +12,7 @@ export async function GET() {
 
   const file = await fs.readFile(filePath);
 
-  return new Response(file, {
+  return new Response(new Uint8Array(file), {
     headers: {
       "Content-Type": "audio/mpeg",
       "Cache-Control": "public, max-age=0, must-revalidate",

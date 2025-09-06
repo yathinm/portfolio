@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type WaveSurfer from "wavesurfer.js";
 import WaveSurferPlayer from "@wavesurfer/react";
 import { CiPlay1, CiPause1 } from "react-icons/ci";
 
@@ -10,13 +11,13 @@ interface MusicPlayerProps {
 }
 
 export default function MusicPlayer({ src, title }: MusicPlayerProps) {
-  const wavesurferRef = useRef<any>(null);
+  const wavesurferRef = useRef<WaveSurfer | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const playerIdRef = useRef<string>(Math.random().toString(36).slice(2));
 
-  const onReady = (ws: any) => {
+  const onReady = (ws: WaveSurfer) => {
     wavesurferRef.current = ws;
     ws.on("play", () => setIsPlaying(true));
     ws.on("pause", () => setIsPlaying(false));
