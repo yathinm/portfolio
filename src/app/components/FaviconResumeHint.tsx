@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { LiaLongArrowAltUpSolid } from "react-icons/lia";
 import Image from "next/image";
 
@@ -8,7 +8,7 @@ export default function FaviconResumeHint() {
   const [resumeRect, setResumeRect] = useState<DOMRect | null>(null);
   const anchorRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const resumeEl = document.getElementById("resume-icon");
     const updateRects = () => {
       if (resumeEl) setResumeRect(resumeEl.getBoundingClientRect());
@@ -30,6 +30,9 @@ export default function FaviconResumeHint() {
     const top = Math.min(window.innerHeight - 56, resumeRect.bottom + gapBelow);
     return { left: centerX, top, useBottom: false } as const;
   }, [resumeRect]);
+
+  // Avoid initial bottom-left flash by not rendering until measured
+  if (!resumeRect) return null;
 
   return (
     <div
