@@ -39,19 +39,6 @@ export default function IconLinks() {
         aria-label="Resume"
         id="resume-icon"
         title="Open resume"
-        onClick={() => {
-          try {
-            const temp = document.createElement('a');
-            temp.href = '/api/resume?download=1';
-            temp.setAttribute('download', 'Yathin_Mrudul_Resume.pdf');
-            temp.style.display = 'none';
-            document.body.appendChild(temp);
-            temp.click();
-            document.body.removeChild(temp);
-          } catch (err) {
-            // best-effort download; ignore errors to still open in new tab
-          }
-        }}
       >
         <MdDescription className="text-4xl" />
       </a>
