@@ -4,21 +4,22 @@ import { NextRequest } from "next/server";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { filename: string } }
+  context: { params: Promise<{ filename: string }> }
 ) {
-  const filename = decodeURIComponent(params.filename);
+  const { filename } = await context.params;
+  const safeName = decodeURIComponent(filename);
   const filePath = path.join(
     process.cwd(),
     "src",
     "app",
     "components",
     "Songs",
-    filename
+    safeName
   );
 
   const file = await fs.readFile(filePath);
 
-  return new Response(file, {
+  return new Response(new Uint8Array(file), {
     headers: {
       "Content-Type": "audio/mpeg",
       "Cache-Control": "public, max-age=0, must-revalidate",
