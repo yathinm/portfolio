@@ -15,7 +15,7 @@ export async function GET() {
     // Explicit mappings requested
     peaches: "Peaches - Kevin Abstract",
     we_find_love: "We Find Love - Daniel Caesar",
-    scar_tissue: "Scar Tissue - Red Hot Chili Pepper",
+    scar_tissue: "Scar Tissue - Red Hot Chili Peppers",
     out_getting_ribs: "Out Getting Ribs - King Krule",
     the_man_who_cant_be_moved: "The Man Who Cant Be Moved - The Script",
   };
