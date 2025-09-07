@@ -1,3 +1,5 @@
+import ProjectCarousel from "../components/ProjectCarousel";
+
 export default function ProjectsPage() {
   return (
     <main
@@ -11,19 +13,7 @@ export default function ProjectsPage() {
         position: "relative",
       }}
     >
-      <h1
-        className="title-strong"
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          margin: 0,
-          color: "#3f5a36",
-        }}
-      >
-        Projects
-      </h1>
+      <ProjectCarousel />
     </main>
   );
 }
