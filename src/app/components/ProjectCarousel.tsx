@@ -314,26 +314,47 @@ export default function ProjectCarousel() {
                 flexDirection: isNarrow ? "column" : "row",
                 alignItems: "stretch",
                 width: "100%",
+                height: "100%",
+                maxHeight: "90vh",
+                gap: isNarrow ? 12 : 18,
+                padding: 16,
+                boxSizing: "border-box",
               }}
             >
               <div
                 style={{
-                  width: isNarrow ? "100%" : "50%",
+                  width: isNarrow ? "100%" : "62%",
                   minWidth: 0,
-                  borderRight: isNarrow ? "none" : "1px solid rgba(63,90,54,0.12)",
-                  background: "#f8faf9",
+                  background: "#ffffff",
+                  border: "2px solid #3f5a36",
+                  borderRadius: 16,
+                  height: isNarrow ? 280 : "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
                 }}
               >
-                <div style={{ position: "relative", width: "100%", height: isNarrow ? 240 : 420, overflow: "hidden" }}>
+                <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <Image
                     src={items[index].src}
                     alt={items[index].alt}
                     placeholder="blur"
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", background: "#ffffff" }}
                   />
                 </div>
               </div>
-              <div style={{ flex: 1, padding: 24 }}>
+              <div
+                style={{
+                  flex: 1,
+                  padding: 24,
+                  background: "#ffffff",
+                  border: "1px solid rgba(63,90,54,0.18)",
+                  borderRadius: 16,
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
+                }}
+              >
                 <h2 id="project-title" style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#3f5a36" }}>
                   {items[index].title}
                 </h2>
