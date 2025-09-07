@@ -17,6 +17,7 @@ type CarouselItem = {
   alt: string;
   title: string;
   description: string;
+  why?: string;
   tags: string[];
   demoUrl?: string;
   codeUrl?: string;
@@ -31,6 +32,8 @@ export default function ProjectCarousel() {
         title: "Pantry Pilot",
         description:
           "An AI recipe generator that transforms your ingredients into complete recipes with step-by-step instructions, all powered by a modern React and Firebase stack.",
+        why:
+          "I grew up with a pantry full of ingredients, but I always struggled to figure out what quick snacks I could make. I created Pantry Pilot to show you easy recipes using only the ingredients you already have at home.",
         tags: ["React", "TypeScript", "Firebase", "OpenAI", "REST APIs", "Google Cloud Platform", "Serverless Functions", "CI/CD"],
         codeUrl: "https://github.com/yathinm/pantry-pilot",
         demoUrl: "https://pantry-pilot8.web.app/",
@@ -41,6 +44,8 @@ export default function ProjectCarousel() {
         title: "Groove-Lab",
         description:
           "A browser-based music workstation for real-time audio production, leveraging a modern stack of React, TypeScript, and Supabase, with the Web Audio API enabling advanced Digital Signal Processing.",
+        why:
+          "As a musician, I wanted a better way to practice the drums and bass. I created Groove Lab so I could listen to a song, play along with a metronome, and record myself and  to it all in the same platform.",
         tags: [
           "React.js",
           "Redux.js",
@@ -60,6 +65,8 @@ export default function ProjectCarousel() {
         title: "UCSD AKPSI Website",
         description:
           "Official website for Alpha Kappa Psi at UCSD powered by a modern React and Supabase stack.",
+        why:
+          "The previous chapter website, built on Wix, was too slow, which led to high user drop-off and a lack of engagement. Other webmasters and I rebuilt the site to significantly reduce latency and enhance the overall user experience.",
         tags: [
           "TypeScript",
           "React",
@@ -78,6 +85,8 @@ export default function ProjectCarousel() {
         title: "Portfolio",
         description:
           "My personal portfolio website showcasing my projects, favorite music, about me, and resume utilizing a modern stack of React, Next.js, and Tailwind CSS.",
+        why:
+          "My resume can list my skills, but it can't tell the full story behind my work. I built this portfolio to give my projects context, offering a deeper look into the problems I solved, and my personal life as well.",
         tags: [
           "TypeScript",
           "React",
@@ -96,6 +105,8 @@ export default function ProjectCarousel() {
         title: "NBA Draft Hub",
         description:
           "Interactive hub for the 2025 NBA Draft prospects, stats, and visualizations leveraging React and JSON data.",
+        why:
+          "I created the NBA Draft Hub for one simple reason: I wanted a better way to scout the next generation of NBA talent. As a passionate basketball fan, I built this site to be a clean, fast, and user-friendly resource for anyone looking to get a detailed look at the upcoming draft class.",
         tags: ["Next.js", "TypeScript", "Json"],
         codeUrl: "https://github.com/yathinm/nba-draft-hub",
         demoUrl: "https://nba-draft-hub.vercel.app/",
@@ -106,6 +117,8 @@ export default function ProjectCarousel() {
         title: "NBA MVP Ranker",
         description:
           "Tool to rank NBA MVP candidates using season metrics utilizing Python Libraries and Java.",
+        why:
+          "The NBA MVP conversation is often dominated by media narratives and subjective debates. I created this project to cut through the noise and develop an objective, data-driven ranking model that uses advanced player statistics to determine who is truly the MVP in the league.",
         tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "Java Swing UI"],
         codeUrl: "https://github.com/yathinm/NBA-MVP-RANKER",
       },
@@ -116,6 +129,7 @@ export default function ProjectCarousel() {
   const [index, setIndex] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isNarrow, setIsNarrow] = useState<boolean>(false);
+  const [isPreviewHover, setIsPreviewHover] = useState<boolean>(false);
 
   const goPrev = useCallback(() => {
     setIndex((currentIndex) =>
@@ -175,6 +189,12 @@ export default function ProjectCarousel() {
           border: "4px solid #3f5a36",
           borderRadius: 14,
           overflow: "hidden",
+          cursor: "pointer",
+          transform: isPreviewHover ? "translateY(-4px) scale(1.01)" : "none",
+          boxShadow: isPreviewHover
+            ? "0 22px 40px rgba(63,90,54,0.25)"
+            : "0 10px 30px rgba(0,0,0,0.12)",
+          transition: "transform 180ms ease, box-shadow 180ms ease",
         }}
         onClick={openModal}
         role="button"
@@ -183,6 +203,8 @@ export default function ProjectCarousel() {
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") openModal();
         }}
+        onMouseEnter={() => setIsPreviewHover(true)}
+        onMouseLeave={() => setIsPreviewHover(false)}
       >
         <Image
           src={items[index].src}
@@ -193,8 +215,9 @@ export default function ProjectCarousel() {
             height: "100%",
             objectFit: "cover",
             objectPosition: "center",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
             display: "block",
+            transform: isPreviewHover ? "scale(1.025)" : "scale(1)",
+            transition: "transform 220ms ease",
           }}
         />
         {null}
@@ -327,25 +350,61 @@ export default function ProjectCarousel() {
                 style={{
                   width: isNarrow ? "100%" : "62%",
                   minWidth: 0,
-                  background: "#ffffff",
-                  border: "2px solid #3f5a36",
-                  borderRadius: 16,
-                  height: isNarrow ? 280 : "100%",
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  overflow: "hidden",
-                  boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
+                  flexDirection: "column",
+                  gap: 12,
                 }}
               >
-                <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Image
-                    src={items[index].src}
-                    alt={items[index].alt}
-                    placeholder="blur"
-                    style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "#ffffff" }}
-                  />
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "2px solid #3f5a36",
+                    borderRadius: 16,
+                    height: isNarrow ? 280 : "calc(100% - 192px)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden",
+                    boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
+                  }}
+                >
+                  <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Image
+                      src={items[index].src}
+                      alt={items[index].alt}
+                      placeholder="blur"
+                      style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "#ffffff" }}
+                    />
+                  </div>
                 </div>
+
+                {items[index].why && (
+                  <div
+                    style={{
+                      background: "#ffffff",
+                      border: "2px solid #3f5a36",
+                      borderRadius: 16,
+                      padding: 16,
+                      boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
+                      height: isNarrow ? "auto" : 180,
+                      overflow: "auto",
+                    }}
+                  >
+                    <div style={{ fontSize: 14, fontWeight: 800, color: "#3f5a36", letterSpacing: 0.3, textTransform: "uppercase" }}>Why</div>
+                    <p
+                      style={{
+                        marginTop: 8,
+                        marginBottom: 0,
+                        color: "#374151",
+                        lineHeight: 1.6,
+                        fontSize: 16,
+                        fontFamily: "Arial, Helvetica, sans-serif",
+                      }}
+                    >
+                      {items[index].why}
+                    </p>
+                  </div>
+                )}
               </div>
               <div
                 style={{
