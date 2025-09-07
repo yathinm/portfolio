@@ -343,7 +343,7 @@ export default function ProjectCarousel() {
                     src={items[index].src}
                     alt={items[index].alt}
                     placeholder="blur"
-                    style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", background: "#ffffff" }}
+                    style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "#ffffff" }}
                   />
                 </div>
               </div>
