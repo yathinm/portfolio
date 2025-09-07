@@ -3,23 +3,38 @@ import IconLinks from "../components/IconLinks";
 
 export default function AboutPage() {
   const toolkit = {
-    backend: ["Node.js", "Flask", "Python", "Java", "SQL", "Django"],
-    frontend: [
+    languages: [
+      "Java",
+      "Python",
       "JavaScript",
       "TypeScript",
-      "React",
-      "React Native",
-      "Next.js",
-      "Tailwind",
       "HTML",
       "CSS",
+      "SQL",
+      "LaTeX",
+      "Bash",
+      "C#",
+      "C++",
     ],
-    databases: ["PostgreSQL", "Firebase", "Supabase"],
+    frameworks: [
+      "React",
+      "React Native",
+      "Pandas",
+      "Tailwind",
+      "NumPy",
+      "Node.js",
+      "Flask",
+      "Next.js",
+    ],
+    databases: ["PostgreSQL", "Firebase"],
     tools: [
-      "Git & GitHub",
+      "Git",
       "Figma",
+      "Google Suite",
       "Google Cloud Platform",
       "OpenAI",
+      "PostgreSQL",
+      "Firebase",
       "Docker",
       "Gradle",
       "CI/CD",
@@ -80,9 +95,9 @@ export default function AboutPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12" style={{ marginTop: 18 }}>
           <div>
-            <h3 style={{ fontSize: 20, fontWeight: 800, margin: 0, color: "#3f5a36" }}>Backend</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 800, margin: 0, color: "#3f5a36" }}>Programming Languages</h3>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
-              {toolkit.backend.map((item) => (
+              {toolkit.languages.map((item) => (
                 <span
                   key={item}
                   style={{
@@ -122,9 +137,9 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h3 style={{ fontSize: 20, fontWeight: 800, margin: 0, color: "#3f5a36" }}>Frontend</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 800, margin: 0, color: "#3f5a36" }}>Libraries & Frameworks</h3>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
-              {toolkit.frontend.map((item) => (
+              {toolkit.frameworks.map((item) => (
                 <span
                   key={item}
                   style={{
@@ -142,7 +157,7 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <h3 style={{ fontSize: 20, fontWeight: 800, margin: "26px 0 0", color: "#3f5a36" }}>Tools & Platforms</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 800, margin: "26px 0 0", color: "#3f5a36" }}>Technologies & Tools</h3>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
               {toolkit.tools.map((item) => (
                 <span
