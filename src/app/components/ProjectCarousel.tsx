@@ -19,12 +19,12 @@ type CarouselItem = {
 export default function ProjectCarousel() {
   const items: CarouselItem[] = useMemo(
     () => [
-      { src: PortfolioPreview, alt: "Portfolio", title: "Portfolio" },
+      { src: PantryPilotPreview, alt: "PantryPilot", title: "Pantry Pilot" },
       { src: GrooveLabPreview, alt: "GrooveLab", title: "Groove Lab" },
+      { src: UCSDAkpsiPreview, alt: "UCSD AKPsi", title: "UCSD Alpha Kappa Psi Official Website" },
+      { src: PortfolioPreview, alt: "Portfolio", title: "Portfolio" },
       { src: NBADraftHubPreview, alt: "NBA Draft Hub", title: "2025 NBA Draft Hub" },
       { src: NBAMVPRankerPreview, alt: "NBA MVP Ranker", title: "2025 NBA MVP Ranker" },
-      { src: PantryPilotPreview, alt: "PantryPilot", title: "Pantry Pilot" },
-      { src: UCSDAkpsiPreview, alt: "UCSD AKPsi", title: "UCSD Alpha Kappa Psi Official Website" },
     ],
     []
   );
