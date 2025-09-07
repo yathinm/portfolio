@@ -1,7 +1,7 @@
 "use client";
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdDescription } from "react-icons/md";
 
 export default function IconLinks() {
   return (
@@ -29,6 +29,18 @@ export default function IconLinks() {
         style={{ color: '#3f5a36' }}
       >
         <MdEmail className="text-4xl" />
+      </a>
+      <a
+        href="/api/resume"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:scale-115 transition-all duration-250 ease-out"
+        style={{ color: '#3f5a36' }}
+        aria-label="Resume"
+        id="resume-icon"
+        title="Open resume"
+      >
+        <MdDescription className="text-4xl" />
       </a>
     </div>
   );

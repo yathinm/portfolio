@@ -2,6 +2,7 @@
 import Blob from "./components/Blob";
 import AnimatedTitle from "./components/AnimatedTitle";
 import IconLinks from "./components/IconLinks";
+import FaviconResumeHint from "./components/FaviconResumeHint";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         </div>
       </div>
       <Blob />
+      <FaviconResumeHint />
     </main>
   );
 }
