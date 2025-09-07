@@ -13,17 +13,18 @@ import UCSDAkpsiPreview from "./ProjectPreviews/UCSDAkpsiPreview.png";
 type CarouselItem = {
   src: any;
   alt: string;
+  title: string;
 };
 
 export default function ProjectCarousel() {
   const items: CarouselItem[] = useMemo(
     () => [
-      { src: PortfolioPreview, alt: "Portfolio" },
-      { src: GrooveLabPreview, alt: "GrooveLab" },
-      { src: NBADraftHubPreview, alt: "NBA Draft Hub" },
-      { src: NBAMVPRankerPreview, alt: "NBA MVP Ranker" },
-      { src: PantryPilotPreview, alt: "PantryPilot" },
-      { src: UCSDAkpsiPreview, alt: "UCSD AKPsi" },
+      { src: PortfolioPreview, alt: "Portfolio", title: "Portfolio" },
+      { src: GrooveLabPreview, alt: "GrooveLab", title: "Groove Lab" },
+      { src: NBADraftHubPreview, alt: "NBA Draft Hub", title: "2025 NBA Draft Hub" },
+      { src: NBAMVPRankerPreview, alt: "NBA MVP Ranker", title: "2025 NBA MVP Ranker" },
+      { src: PantryPilotPreview, alt: "PantryPilot", title: "Pantry Pilot" },
+      { src: UCSDAkpsiPreview, alt: "UCSD AKPsi", title: "UCSD Alpha Kappa Psi Official Website" },
     ],
     []
   );
@@ -48,6 +49,7 @@ export default function ProjectCarousel() {
         width: "100vw",
         height: "100vh",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
@@ -81,6 +83,21 @@ export default function ProjectCarousel() {
           }}
         />
         {null}
+      </div>
+
+      <div
+        style={{
+          marginTop: 20,
+          color: "#3f5a36",
+          fontWeight: 700,
+          textAlign: "center",
+          fontSize: 22,
+          lineHeight: 1.1,
+          padding: "0 12px",
+          maxWidth: "min(92vw, 640px)",
+        }}
+      >
+        {items[index].title}
       </div>
 
       <button
