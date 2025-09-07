@@ -116,6 +116,7 @@ export default function ProjectCarousel() {
   const [index, setIndex] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isNarrow, setIsNarrow] = useState<boolean>(false);
+  const [isPreviewHover, setIsPreviewHover] = useState<boolean>(false);
 
   const goPrev = useCallback(() => {
     setIndex((currentIndex) =>
@@ -175,6 +176,12 @@ export default function ProjectCarousel() {
           border: "4px solid #3f5a36",
           borderRadius: 14,
           overflow: "hidden",
+          cursor: "pointer",
+          transform: isPreviewHover ? "translateY(-4px) scale(1.01)" : "none",
+          boxShadow: isPreviewHover
+            ? "0 22px 40px rgba(63,90,54,0.25)"
+            : "0 10px 30px rgba(0,0,0,0.12)",
+          transition: "transform 180ms ease, box-shadow 180ms ease",
         }}
         onClick={openModal}
         role="button"
@@ -183,6 +190,8 @@ export default function ProjectCarousel() {
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") openModal();
         }}
+        onMouseEnter={() => setIsPreviewHover(true)}
+        onMouseLeave={() => setIsPreviewHover(false)}
       >
         <Image
           src={items[index].src}
@@ -193,8 +202,9 @@ export default function ProjectCarousel() {
             height: "100%",
             objectFit: "cover",
             objectPosition: "center",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
             display: "block",
+            transform: isPreviewHover ? "scale(1.025)" : "scale(1)",
+            transition: "transform 220ms ease",
           }}
         />
         {null}
