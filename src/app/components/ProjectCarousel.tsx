@@ -295,8 +295,8 @@ export default function ProjectCarousel() {
               aria-label="Close"
               style={{
                 position: "absolute",
-                top: 12,
-                right: 12,
+                top: 20,
+                right: 20,
                 width: "auto",
                 height: "auto",
                 background: "transparent",
@@ -304,9 +304,11 @@ export default function ProjectCarousel() {
                 border: "none",
                 cursor: "pointer",
                 zIndex: 5,
+                padding: 8,
+                lineHeight: 0,
               }}
             >
-              <IoClose size={20} />
+              <IoClose size={28} />
             </button>
             <div
               style={{
@@ -350,7 +352,7 @@ export default function ProjectCarousel() {
                   flex: 1,
                   padding: 24,
                   background: "#ffffff",
-                  border: "1px solid rgba(63,90,54,0.18)",
+                  border: "2px solid #3f5a36",
                   borderRadius: 16,
                   boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
                 }}
@@ -388,36 +390,32 @@ export default function ProjectCarousel() {
                   ))}
                 </div>
 
-                <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                   {items[index].demoUrl && (
                     <a
                       href={items[index].demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Open live demo"
                       style={{
-                        padding: "12px 18px",
-                        borderRadius: 14,
-                        background: "#3f5a36",
-                        color: "#ffffff",
-                        fontWeight: 800,
+                        padding: 6,
+                        background: "transparent",
+                        color: "#3f5a36",
+                        border: "none",
                         textDecoration: "none",
                         display: "inline-flex",
                         alignItems: "center",
-                        gap: 10,
-                        boxShadow: "0 6px 24px rgba(63,90,54,0.35)",
-                        transition: "transform .15s ease, box-shadow .15s ease",
+                        justifyContent: "center",
+                        transition: "transform .15s ease",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
-                        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 10px 30px rgba(63,90,54,0.45)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.08)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-                        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 24px rgba(63,90,54,0.35)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
                       }}
                     >
-                      <FaLink />
-                      Live Demo
+                      <FaLink size={32} />
                     </a>
                   )}
                   {items[index].codeUrl && (
@@ -425,32 +423,26 @@ export default function ProjectCarousel() {
                       href={items[index].codeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View code on GitHub"
                       style={{
-                        padding: "12px 18px",
-                        borderRadius: 14,
+                        padding: 6,
                         background: "transparent",
                         color: "#3f5a36",
-                        border: "2px solid #3f5a36",
+                        border: "none",
                         textDecoration: "none",
-                        fontWeight: 800,
                         display: "inline-flex",
                         alignItems: "center",
-                        gap: 10,
-                        backdropFilter: "blur(2px)",
-                        boxShadow: "inset 0 0 0 1px rgba(63,90,54,0.08)",
-                        transition: "background .15s ease, transform .15s ease",
+                        justifyContent: "center",
+                        transition: "transform .15s ease",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.background = "rgba(63,90,54,0.06)";
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.08)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
                       }}
                     >
-                      <FaGithub />
-                      Code
+                      <FaGithub size={32} />
                     </a>
                   )}
                 </div>
