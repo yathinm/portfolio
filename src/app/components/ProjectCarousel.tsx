@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useMemo, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 import GrooveLabPreview from "./ProjectPreviews/GrooveLabPreview.png";
 import NBADraftHubPreview from "./ProjectPreviews/NBADraftHubPreview.png";
@@ -11,7 +11,7 @@ import PortfolioPreview from "./ProjectPreviews/PortfolioPreview.png";
 import UCSDAkpsiPreview from "./ProjectPreviews/UCSDAkpsiPreview.png";
 
 type CarouselItem = {
-  src: any;
+  src: StaticImageData;
   alt: string;
   title: string;
 };
