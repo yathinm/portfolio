@@ -53,6 +53,18 @@ html, body {
   50% { opacity: 0; }
 }
 
+/* Gentle vertical float animation */
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+.float-y {
+  animation: floatY 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* Strong display title styling */
 .panton-loaded .title-strong {
   font-family: 'Panton Rust Black Base', var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
