@@ -4,10 +4,11 @@ import Image from "next/image";
 import { FaLink, FaGithub } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { projects } from "./projectsData";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProjectGrid() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isNarrow, setIsNarrow] = useState<boolean>(false);
 
   useEffect(() => {
@@ -49,11 +50,14 @@ export default function ProjectGrid() {
               borderRadius: 14,
               background: "#ffffff",
               overflow: "hidden",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              boxShadow: hoveredIndex === idx ? "0 22px 40px rgba(63,90,54,0.18)" : "0 10px 30px rgba(0,0,0,0.08)",
               transition: "transform 160ms ease, box-shadow 160ms ease",
+              transform: hoveredIndex === idx ? "translateY(-4px) scale(1.01)" : "none",
               cursor: "pointer",
             }}
             onClick={() => setSelectedIndex(idx)}
+            onMouseEnter={() => setHoveredIndex(idx)}
+            onMouseLeave={() => setHoveredIndex(null)}
           >
             <div style={{ position: "relative", width: "100%", paddingTop: "58%" }}>
               <Image
@@ -62,7 +66,12 @@ export default function ProjectGrid() {
                 placeholder="blur"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                style={{ objectFit: "cover", objectPosition: "center" }}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  transform: hoveredIndex === idx ? "scale(1.025)" : "scale(1)",
+                  transition: "transform 220ms ease",
+                }}
               />
             </div>
 
