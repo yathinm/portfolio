@@ -1,44 +1,14 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import { FaLink, FaGithub } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import Image, { StaticImageData } from "next/image";
-import { projects as items } from "./projectsData";
+import { projects } from "./projectsData";
+import { useEffect, useMemo, useState } from "react";
 
-export default function ProjectCarousel() {
-
-  const [index, setIndex] = useState<number>(0);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+export default function ProjectGrid() {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isNarrow, setIsNarrow] = useState<boolean>(false);
-  const [isPreviewHover, setIsPreviewHover] = useState<boolean>(false);
-
-  const goPrev = useCallback(() => {
-    setIndex((currentIndex) =>
-      currentIndex === 0 ? items.length - 1 : currentIndex - 1
-    );
-  }, [items.length]);
-
-  const goNext = useCallback(() => {
-    setIndex((currentIndex) =>
-      currentIndex === items.length - 1 ? 0 : currentIndex + 1
-    );
-  }, [items.length]);
-
-  const openModal = useCallback(() => setIsOpen(true), []);
-  const closeModal = useCallback(() => setIsOpen(false), []);
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
-    };
-    if (isOpen) {
-      window.addEventListener("keydown", onKeyDown);
-    }
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen]);
 
   useEffect(() => {
     const evaluate = () => setIsNarrow(window.innerWidth < 900);
@@ -47,126 +17,100 @@ export default function ProjectCarousel() {
     return () => window.removeEventListener("resize", evaluate);
   }, []);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedIndex(null);
+    };
+    if (selectedIndex !== null) window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedIndex]);
+
   return (
     <div
       style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        overflow: "hidden",
+        width: "100%",
+        maxWidth: 1200,
+        margin: "0 auto",
+        padding: "16px 16px 80px",
       }}
-    >
+   >
       <div
         style={{
-          width: "min(92vw, 640px)",
-          height: "min(70vh, 400px)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-          border: "4px solid #3f5a36",
-          borderRadius: 14,
-          overflow: "hidden",
-          cursor: "pointer",
-          transform: isPreviewHover ? "translateY(-4px) scale(1.01)" : "none",
-          boxShadow: isPreviewHover
-            ? "0 22px 40px rgba(63,90,54,0.25)"
-            : "0 10px 30px rgba(0,0,0,0.12)",
-          transition: "transform 180ms ease, box-shadow 180ms ease",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: 24,
         }}
-        onClick={openModal}
-        role="button"
-        aria-label="Open project details"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") openModal();
-        }}
-        onMouseEnter={() => setIsPreviewHover(true)}
-        onMouseLeave={() => setIsPreviewHover(false)}
       >
-        <Image
-          src={items[index].src}
-          alt={items[index].alt}
-          placeholder="blur"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-            display: "block",
-            transform: isPreviewHover ? "scale(1.025)" : "scale(1)",
-            transition: "transform 220ms ease",
-          }}
-        />
-        {null}
+        {projects.map((project, idx) => (
+          <div
+            key={project.title}
+            style={{
+              border: "2px solid #3f5a36",
+              borderRadius: 14,
+              background: "#ffffff",
+              overflow: "hidden",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              transition: "transform 160ms ease, box-shadow 160ms ease",
+              cursor: "pointer",
+            }}
+            onClick={() => setSelectedIndex(idx)}
+          >
+            <div style={{ position: "relative", width: "100%", paddingTop: "58%" }}>
+              <Image
+                src={project.src}
+                alt={project.alt}
+                placeholder="blur"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
+
+            <div style={{ padding: 14 }}>
+              <div
+                style={{
+                  color: "#3f5a36",
+                  fontWeight: 800,
+                  fontSize: 19,
+                  lineHeight: 1.2,
+                  marginBottom: 10,
+                }}
+              >
+                {project.title}
+              </div>
+
+              <div style={{ display: "flex", gap: 10 }}>
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open live demo"
+                    style={{ color: "#3f5a36" }}
+                  >
+                    <FaLink size={22} />
+                  </a>
+                )}
+                {project.codeUrl && (
+                  <a
+                    href={project.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View code on GitHub"
+                    style={{ color: "#3f5a36" }}
+                  >
+                    <FaGithub size={22} />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div
-        style={{
-          marginTop: 20,
-          color: "#3f5a36",
-          fontWeight: 700,
-          textAlign: "center",
-          fontSize: 22,
-          lineHeight: 1.1,
-          padding: "0 12px",
-          maxWidth: "min(92vw, 640px)",
-        }}
-      >
-        {items[index].title}
-      </div>
-
-      <button
-        aria-label="Previous project"
-        onClick={goPrev}
-        style={{
-          position: "absolute",
-          top: "50%",
-          transform: "translateY(-50%)",
-          left: "calc(50% - min(46vw, 320px) - 56px)",
-          background: "transparent",
-          color: "#3f5a36",
-          border: "none",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-
-      <button
-        aria-label="Next project"
-        onClick={goNext}
-        style={{
-          position: "absolute",
-          top: "50%",
-          transform: "translateY(-50%)",
-          right: "calc(50% - min(46vw, 320px) - 56px)",
-          background: "transparent",
-          color: "#3f5a36",
-          border: "none",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-
-      {isOpen && (
+      {selectedIndex !== null && (
         <div
-          onClick={closeModal}
+          onClick={() => setSelectedIndex(null)}
           style={{
             position: "fixed",
             inset: 0,
@@ -196,7 +140,7 @@ export default function ProjectCarousel() {
             }}
           >
             <button
-              onClick={closeModal}
+              onClick={() => setSelectedIndex(null)}
               aria-label="Close"
               style={{
                 position: "absolute",
@@ -215,6 +159,7 @@ export default function ProjectCarousel() {
             >
               <IoClose size={28} />
             </button>
+
             <div
               style={{
                 display: "flex",
@@ -252,15 +197,15 @@ export default function ProjectCarousel() {
                 >
                   <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <Image
-                      src={items[index].src}
-                      alt={items[index].alt}
+                      src={projects[selectedIndex].src}
+                      alt={projects[selectedIndex].alt}
                       placeholder="blur"
                       style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "#ffffff" }}
                     />
                   </div>
                 </div>
 
-                {items[index].why && (
+                {projects[selectedIndex].why && (
                   <div
                     style={{
                       background: "#ffffff",
@@ -283,7 +228,7 @@ export default function ProjectCarousel() {
                         fontFamily: "Arial, Helvetica, sans-serif",
                       }}
                     >
-                      {items[index].why}
+                      {projects[selectedIndex].why}
                     </p>
                   </div>
                 )}
@@ -299,7 +244,7 @@ export default function ProjectCarousel() {
                 }}
               >
                 <h2 id="project-title" style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#3f5a36" }}>
-                  {items[index].title}
+                  {projects[selectedIndex].title}
                 </h2>
                 <p style={{
                   marginTop: 12,
@@ -309,11 +254,11 @@ export default function ProjectCarousel() {
                   fontSize: 16,
                   fontFamily: "Arial, Helvetica, sans-serif",
                 }}>
-                  {items[index].description}
+                  {projects[selectedIndex].description}
                 </p>
 
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 22 }}>
-                  {items[index].tags.map((tag) => (
+                  {projects[selectedIndex].tags.map((tag) => (
                     <span
                       key={tag}
                       style={{
@@ -332,9 +277,9 @@ export default function ProjectCarousel() {
                 </div>
 
                 <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  {items[index].demoUrl && (
+                  {projects[selectedIndex].demoUrl && (
                     <a
-                      href={items[index].demoUrl}
+                      href={projects[selectedIndex].demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Open live demo"
@@ -359,9 +304,9 @@ export default function ProjectCarousel() {
                       <FaLink size={32} />
                     </a>
                   )}
-                  {items[index].codeUrl && (
+                  {projects[selectedIndex].codeUrl && (
                     <a
-                      href={items[index].codeUrl}
+                      href={projects[selectedIndex].codeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="View code on GitHub"
