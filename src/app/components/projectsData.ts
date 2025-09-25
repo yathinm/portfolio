@@ -45,7 +45,7 @@ export const projects: ProjectItem[] = [
   {
     src: GrooveLabPreview,
     alt: "GrooveLab",
-    title: "Groove-Lab",
+    title: "Groove Lab",
     description:
       "A browser-based music workstation for real-time audio production, leveraging a modern stack of React, TypeScript, and Supabase, with the Web Audio API enabling advanced Digital Signal Processing.",
     why:
