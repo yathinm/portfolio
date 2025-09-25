@@ -19,7 +19,10 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="pointer-events-auto" style={{ position: 'absolute', top: 24, right: 32, zIndex: 10 }}>
+    <nav
+      className="pointer-events-auto"
+      style={{ position: "absolute", top: 24, right: 32, zIndex: 10 }}
+    >
       <ul className="flex items-center gap-8">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
@@ -42,5 +45,3 @@ export default function NavBar() {
     </nav>
   );
 }
-
-

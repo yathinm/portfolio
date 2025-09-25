@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Yathin's Portfolio",
   description: "Yathin's Portfolio",
@@ -30,7 +29,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} panton-loaded antialiased`}
       >
-        <div style={{ position: "relative", minHeight: "100%", overflowY: "auto", overflowX: "hidden" }}>
+        <div
+          style={{
+            position: "relative",
+            minHeight: "100%",
+            overflowY: "auto",
+            overflowX: "hidden",
+          }}
+        >
           <div style={{ position: "sticky", top: 0, zIndex: 5 }}>
             <NavBar />
           </div>

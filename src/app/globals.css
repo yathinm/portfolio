@@ -26,7 +26,8 @@ body {
   background-attachment: fixed;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -50,14 +51,22 @@ html, body {
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Gentle vertical float animation */
 @keyframes floatY {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .float-y {
@@ -67,7 +76,17 @@ html, body {
 
 /* Strong display title styling */
 .panton-loaded .title-strong {
-  font-family: 'Panton Rust Black Base', var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:
+    "Panton Rust Black Base",
+    var(--font-geist-sans),
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
 }
 .title-strong {
   font-weight: 900;
@@ -83,9 +102,10 @@ html, body {
 }
 
 @font-face {
-  font-family: 'Panton Rust Black Base';
-  src: url('/fonts/PantonRust-BlackBase.woff2') format('woff2'),
-       url('/fonts/PantonRust-BlackBase.woff') format('woff');
+  font-family: "Panton Rust Black Base";
+  src:
+    url("/fonts/PantonRust-BlackBase.woff2") format("woff2"),
+    url("/fonts/PantonRust-BlackBase.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;

@@ -7,7 +7,6 @@ import Image, { StaticImageData } from "next/image";
 import { projects as items } from "./projectsData";
 
 export default function ProjectCarousel() {
-
   const [index, setIndex] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isNarrow, setIsNarrow] = useState<boolean>(false);
@@ -15,13 +14,13 @@ export default function ProjectCarousel() {
 
   const goPrev = useCallback(() => {
     setIndex((currentIndex) =>
-      currentIndex === 0 ? items.length - 1 : currentIndex - 1
+      currentIndex === 0 ? items.length - 1 : currentIndex - 1,
     );
   }, [items.length]);
 
   const goNext = useCallback(() => {
     setIndex((currentIndex) =>
-      currentIndex === items.length - 1 ? 0 : currentIndex + 1
+      currentIndex === items.length - 1 ? 0 : currentIndex + 1,
     );
   }, [items.length]);
 
@@ -138,7 +137,13 @@ export default function ProjectCarousel() {
         }}
       >
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M15 18l-6-6 6-6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
 
@@ -160,7 +165,13 @@ export default function ProjectCarousel() {
         }}
       >
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M9 6l6 6-6 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
 
@@ -250,12 +261,28 @@ export default function ProjectCarousel() {
                     boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
                   }}
                 >
-                  <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     <Image
                       src={items[index].src}
                       alt={items[index].alt}
                       placeholder="blur"
-                      style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "#ffffff" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                        objectPosition: "center",
+                        backgroundColor: "#ffffff",
+                      }}
                     />
                   </div>
                 </div>
@@ -272,7 +299,17 @@ export default function ProjectCarousel() {
                       overflow: "auto",
                     }}
                   >
-                    <div style={{ fontSize: 14, fontWeight: 800, color: "#3f5a36", letterSpacing: 0.3, textTransform: "uppercase" }}>Why</div>
+                    <div
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 800,
+                        color: "#3f5a36",
+                        letterSpacing: 0.3,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      Why
+                    </div>
                     <p
                       style={{
                         marginTop: 8,
@@ -298,21 +335,38 @@ export default function ProjectCarousel() {
                   boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
                 }}
               >
-                <h2 id="project-title" style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#3f5a36" }}>
+                <h2
+                  id="project-title"
+                  style={{
+                    margin: 0,
+                    fontSize: 28,
+                    fontWeight: 800,
+                    color: "#3f5a36",
+                  }}
+                >
                   {items[index].title}
                 </h2>
-                <p style={{
-                  marginTop: 12,
-                  marginBottom: 16,
-                  color: "#374151",
-                  lineHeight: 1.6,
-                  fontSize: 16,
-                  fontFamily: "Arial, Helvetica, sans-serif",
-                }}>
+                <p
+                  style={{
+                    marginTop: 12,
+                    marginBottom: 16,
+                    color: "#374151",
+                    lineHeight: 1.6,
+                    fontSize: 16,
+                    fontFamily: "Arial, Helvetica, sans-serif",
+                  }}
+                >
                   {items[index].description}
                 </p>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 22 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 10,
+                    marginBottom: 22,
+                  }}
+                >
                   {items[index].tags.map((tag) => (
                     <span
                       key={tag}
@@ -350,10 +404,12 @@ export default function ProjectCarousel() {
                         transition: "transform .15s ease",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.08)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1.08)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1)";
                       }}
                     >
                       <FaLink size={32} />
@@ -377,10 +433,12 @@ export default function ProjectCarousel() {
                         transition: "transform .15s ease",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.08)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1.08)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1)";
                       }}
                     >
                       <FaGithub size={32} />
@@ -395,5 +453,3 @@ export default function ProjectCarousel() {
     </div>
   );
 }
-
-

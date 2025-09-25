@@ -27,8 +27,7 @@ export const projects: ProjectItem[] = [
     title: "Pantry Pilot",
     description:
       "An AI recipe generator that transforms your ingredients into complete recipes with step-by-step instructions, all powered by a modern React and Firebase stack.",
-    why:
-      "I grew up with a pantry full of ingredients, but I always struggled to figure out what quick snacks I could make. I created Pantry Pilot to show you easy recipes using only the ingredients you already have at home.",
+    why: "I grew up with a pantry full of ingredients, but I always struggled to figure out what quick snacks I could make. I created Pantry Pilot to show you easy recipes using only the ingredients you already have at home.",
     tags: [
       "React",
       "TypeScript",
@@ -48,8 +47,7 @@ export const projects: ProjectItem[] = [
     title: "Groove Lab",
     description:
       "A browser-based music workstation for real-time audio production, leveraging a modern stack of React, TypeScript, and Supabase, with the Web Audio API enabling advanced Digital Signal Processing.",
-    why:
-      "As a musician, I wanted a better way to practice the drums and bass. I created Groove Lab so I could listen to a song, play along with a metronome, and record myself and  to it all in the same platform.",
+    why: "As a musician, I wanted a better way to practice the drums and bass. I created Groove Lab so I could listen to a song, play along with a metronome, and record myself and  to it all in the same platform.",
     tags: [
       "React.js",
       "Redux.js",
@@ -69,8 +67,7 @@ export const projects: ProjectItem[] = [
     title: "UCSD AKPSI Website",
     description:
       "Official website for Alpha Kappa Psi at UCSD powered by a modern React and Supabase stack.",
-    why:
-      "The previous chapter website, built on Wix, was too slow, which led to high user drop-off and a lack of engagement. Other webmasters and I rebuilt the site to significantly reduce latency and enhance the overall user experience.",
+    why: "The previous chapter website, built on Wix, was too slow, which led to high user drop-off and a lack of engagement. Other webmasters and I rebuilt the site to significantly reduce latency and enhance the overall user experience.",
     tags: [
       "TypeScript",
       "React",
@@ -89,8 +86,7 @@ export const projects: ProjectItem[] = [
     title: "Portfolio",
     description:
       "My personal portfolio website showcasing my projects, favorite music, about me, and resume utilizing a modern stack of React, Next.js, and Tailwind CSS.",
-    why:
-      "My resume can list my skills, but it can't tell the full story behind my work. I built this portfolio to give my projects context, offering a deeper look into the problems I solved, and my personal life as well.",
+    why: "My resume can list my skills, but it can't tell the full story behind my work. I built this portfolio to give my projects context, offering a deeper look into the problems I solved, and my personal life as well.",
     tags: [
       "TypeScript",
       "React",
@@ -109,8 +105,7 @@ export const projects: ProjectItem[] = [
     title: "NBA Draft Hub",
     description:
       "Interactive hub for the 2025 NBA Draft prospects, stats, and visualizations leveraging React and JSON data.",
-    why:
-      "I created the NBA Draft Hub for one simple reason: I wanted a better way to scout the next generation of NBA talent. As a passionate basketball fan, I built this site to be a clean, fast, and user-friendly resource for anyone looking to get a detailed look at the upcoming draft class.",
+    why: "I created the NBA Draft Hub for one simple reason: I wanted a better way to scout the next generation of NBA talent. As a passionate basketball fan, I built this site to be a clean, fast, and user-friendly resource for anyone looking to get a detailed look at the upcoming draft class.",
     tags: ["Next.js", "TypeScript", "Json"],
     codeUrl: "https://github.com/yathinm/nba-draft-hub",
     demoUrl: "https://nba-draft-hub.vercel.app/",
@@ -121,11 +116,8 @@ export const projects: ProjectItem[] = [
     title: "NBA MVP Ranker",
     description:
       "Tool to rank NBA MVP candidates using season metrics utilizing Python Libraries and Java.",
-    why:
-      "The NBA MVP conversation is often dominated by media narratives and subjective debates. I created this project to cut through the noise and develop an objective, data-driven ranking model that uses advanced player statistics to determine who is truly the MVP in the league.",
+    why: "The NBA MVP conversation is often dominated by media narratives and subjective debates. I created this project to cut through the noise and develop an objective, data-driven ranking model that uses advanced player statistics to determine who is truly the MVP in the league.",
     tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "Java Swing UI"],
     codeUrl: "https://github.com/yathinm/NBA-MVP-RANKER",
   },
 ];
-
-

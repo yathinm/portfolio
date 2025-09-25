@@ -2,13 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 export async function GET() {
-  const dirPath = path.join(
-    process.cwd(),
-    "src",
-    "app",
-    "components",
-    "Songs"
-  );
+  const dirPath = path.join(process.cwd(), "src", "app", "components", "Songs");
 
   const entries = await fs.readdir(dirPath);
   const artistMap: Record<string, string> = {
@@ -36,5 +30,3 @@ export async function GET() {
 
   return Response.json({ songs });
 }
-
-

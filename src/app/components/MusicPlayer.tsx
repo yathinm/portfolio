@@ -34,7 +34,11 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
     } else {
       // Notify other players to pause before starting this one
       try {
-        window.dispatchEvent(new CustomEvent("music-player:request-play", { detail: { id: playerIdRef.current } }));
+        window.dispatchEvent(
+          new CustomEvent("music-player:request-play", {
+            detail: { id: playerIdRef.current },
+          }),
+        );
       } catch {}
       ws.play();
     }
@@ -53,7 +57,8 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
       }
     };
     window.addEventListener("music-player:request-play", handler);
-    return () => window.removeEventListener("music-player:request-play", handler);
+    return () =>
+      window.removeEventListener("music-player:request-play", handler);
   }, []);
 
   const formatTime = (t: number) => {
@@ -113,11 +118,7 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
           onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
-          {isPlaying ? (
-            <CiPause1 size={26} />
-          ) : (
-            <CiPlay1 size={26} />
-          )}
+          {isPlaying ? <CiPause1 size={26} /> : <CiPlay1 size={26} />}
         </button>
 
         <div style={{ flex: 1, overflow: "hidden", maxWidth: "100%" }}>
@@ -145,7 +146,8 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
             minWidth: 64,
             textAlign: "right",
             color: "#3f5a36",
-            fontFamily: "var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace",
+            fontFamily:
+              "var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace",
           }}
         >
           {formatTime(currentTime)} / {formatTime(duration)}
@@ -154,5 +156,3 @@ export default function MusicPlayer({ src, title }: MusicPlayerProps) {
     </div>
   );
 }
-
-
