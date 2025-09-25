@@ -7,7 +7,7 @@ export async function GET() {
     "src",
     "app",
     "components",
-    "We_Find_Love_Daniel_Caesar.mp3"
+    "We_Find_Love_Daniel_Caesar.mp3",
   );
 
   const file = await fs.readFile(filePath);
@@ -20,5 +20,3 @@ export async function GET() {
     },
   });
 }
-
-

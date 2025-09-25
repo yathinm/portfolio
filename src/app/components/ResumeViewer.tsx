@@ -13,8 +13,10 @@ export default function ResumeViewer() {
     return `${base}#page=1&zoom=${Math.round(zoom * 100)}%`;
   }, [zoom]);
 
-  const handleZoomIn = () => setZoom((z) => Math.min(2, parseFloat((z + 0.1).toFixed(2))));
-  const handleZoomOut = () => setZoom((z) => Math.max(0.5, parseFloat((z - 0.1).toFixed(2))));
+  const handleZoomIn = () =>
+    setZoom((z) => Math.min(2, parseFloat((z + 0.1).toFixed(2))));
+  const handleZoomOut = () =>
+    setZoom((z) => Math.max(0.5, parseFloat((z - 0.1).toFixed(2))));
   const handleReset = () => setZoom(1);
 
   return (
@@ -51,7 +53,9 @@ export default function ResumeViewer() {
           >
             −
           </button>
-          <div style={{ minWidth: 60, textAlign: "center", fontWeight: 600 }}>{Math.round(zoom * 100)}%</div>
+          <div style={{ minWidth: 60, textAlign: "center", fontWeight: 600 }}>
+            {Math.round(zoom * 100)}%
+          </div>
           <button
             onClick={handleZoomIn}
             style={{
@@ -129,5 +133,3 @@ export default function ResumeViewer() {
     </div>
   );
 }
-
-

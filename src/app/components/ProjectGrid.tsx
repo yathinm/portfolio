@@ -34,7 +34,7 @@ export default function ProjectGrid() {
         margin: "0 auto",
         padding: "16px 16px 80px",
       }}
-   >
+    >
       <div
         style={{
           display: "grid",
@@ -50,16 +50,22 @@ export default function ProjectGrid() {
               borderRadius: 14,
               background: "#ffffff",
               overflow: "hidden",
-              boxShadow: hoveredIndex === idx ? "0 22px 40px rgba(63,90,54,0.18)" : "0 10px 30px rgba(0,0,0,0.08)",
+              boxShadow:
+                hoveredIndex === idx
+                  ? "0 22px 40px rgba(63,90,54,0.18)"
+                  : "0 10px 30px rgba(0,0,0,0.08)",
               transition: "transform 160ms ease, box-shadow 160ms ease",
-              transform: hoveredIndex === idx ? "translateY(-4px) scale(1.01)" : "none",
+              transform:
+                hoveredIndex === idx ? "translateY(-4px) scale(1.01)" : "none",
               cursor: "pointer",
             }}
             onClick={() => setSelectedIndex(idx)}
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <div style={{ position: "relative", width: "100%", paddingTop: "58%" }}>
+            <div
+              style={{ position: "relative", width: "100%", paddingTop: "58%" }}
+            >
               <Image
                 src={project.src}
                 alt={project.alt}
@@ -204,12 +210,28 @@ export default function ProjectGrid() {
                     boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
                   }}
                 >
-                  <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     <Image
                       src={projects[selectedIndex].src}
                       alt={projects[selectedIndex].alt}
                       placeholder="blur"
-                      style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "#ffffff" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                        objectPosition: "center",
+                        backgroundColor: "#ffffff",
+                      }}
                     />
                   </div>
                 </div>
@@ -226,7 +248,17 @@ export default function ProjectGrid() {
                       overflow: "auto",
                     }}
                   >
-                    <div style={{ fontSize: 14, fontWeight: 800, color: "#3f5a36", letterSpacing: 0.3, textTransform: "uppercase" }}>Why</div>
+                    <div
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 800,
+                        color: "#3f5a36",
+                        letterSpacing: 0.3,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      Why
+                    </div>
                     <p
                       style={{
                         marginTop: 8,
@@ -252,21 +284,38 @@ export default function ProjectGrid() {
                   boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
                 }}
               >
-                <h2 id="project-title" style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#3f5a36" }}>
+                <h2
+                  id="project-title"
+                  style={{
+                    margin: 0,
+                    fontSize: 28,
+                    fontWeight: 800,
+                    color: "#3f5a36",
+                  }}
+                >
                   {projects[selectedIndex].title}
                 </h2>
-                <p style={{
-                  marginTop: 12,
-                  marginBottom: 16,
-                  color: "#374151",
-                  lineHeight: 1.6,
-                  fontSize: 16,
-                  fontFamily: "Arial, Helvetica, sans-serif",
-                }}>
+                <p
+                  style={{
+                    marginTop: 12,
+                    marginBottom: 16,
+                    color: "#374151",
+                    lineHeight: 1.6,
+                    fontSize: 16,
+                    fontFamily: "Arial, Helvetica, sans-serif",
+                  }}
+                >
                   {projects[selectedIndex].description}
                 </p>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 22 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 10,
+                    marginBottom: 22,
+                  }}
+                >
                   {projects[selectedIndex].tags.map((tag) => (
                     <span
                       key={tag}
@@ -304,10 +353,12 @@ export default function ProjectGrid() {
                         transition: "transform .15s ease",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.08)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1.08)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1)";
                       }}
                     >
                       <FaLink size={32} />
@@ -331,10 +382,12 @@ export default function ProjectGrid() {
                         transition: "transform .15s ease",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.08)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1.08)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
+                        (e.currentTarget as HTMLAnchorElement).style.transform =
+                          "scale(1)";
                       }}
                     >
                       <FaGithub size={32} />
@@ -349,5 +402,3 @@ export default function ProjectGrid() {
     </div>
   );
 }
-
-

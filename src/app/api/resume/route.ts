@@ -8,7 +8,7 @@ export async function GET(request: Request) {
     "app",
     "components",
     "Resume",
-    "Yathin_Mrudul_Resume.pdf"
+    "Yathin_Mrudul_Resume.pdf",
   );
 
   try {
@@ -31,5 +31,3 @@ export async function GET(request: Request) {
     return new Response("Resume not found", { status: 404 });
   }
 }
-
-

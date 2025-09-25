@@ -3,7 +3,9 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const MusicPlayer = dynamic(() => import("../components/MusicPlayer"), { ssr: false });
+const MusicPlayer = dynamic(() => import("../components/MusicPlayer"), {
+  ssr: false,
+});
 
 async function fetchSongs(): Promise<{ title: string; url: string }[]> {
   const res = await fetch("/api/music/songs", { cache: "no-store" });
@@ -57,7 +59,9 @@ export default function MusicPage() {
 }
 
 function SongsList() {
-  const [songs, setSongs] = React.useState<{ title: string; url: string }[]>([]);
+  const [songs, setSongs] = React.useState<{ title: string; url: string }[]>(
+    [],
+  );
 
   const load = React.useCallback(() => {
     fetchSongs()
@@ -69,23 +73,28 @@ function SongsList() {
     load();
     const handleFocus = () => load();
     const handleShow = () => load();
-    window.addEventListener('focus', handleFocus);
-    window.addEventListener('pageshow', handleShow);
-    document.addEventListener('visibilitychange', handleShow);
+    window.addEventListener("focus", handleFocus);
+    window.addEventListener("pageshow", handleShow);
+    document.addEventListener("visibilitychange", handleShow);
     return () => {
-      window.removeEventListener('focus', handleFocus);
-      window.removeEventListener('pageshow', handleShow);
-      document.removeEventListener('visibilitychange', handleShow);
+      window.removeEventListener("focus", handleFocus);
+      window.removeEventListener("pageshow", handleShow);
+      document.removeEventListener("visibilitychange", handleShow);
     };
   }, [load]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 32, marginTop: 24 }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 32,
+        marginTop: 24,
+      }}
+    >
       {songs.map((song) => (
         <MusicPlayer key={song.url} src={song.url} title={song.title} />
       ))}
     </div>
   );
 }
-
-

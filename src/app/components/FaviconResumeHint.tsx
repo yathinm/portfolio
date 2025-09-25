@@ -38,19 +38,59 @@ export default function FaviconResumeHint() {
     <div
       style={
         anchorPos.useBottom
-          ? { position: "fixed", left: 12, bottom: 12, zIndex: 6, color: "#3f5a36" }
-          : { position: "fixed", left: anchorPos.left, top: anchorPos.top, transform: "translateX(-50%)", zIndex: 6, color: "#3f5a36" }
+          ? {
+              position: "fixed",
+              left: 12,
+              bottom: 12,
+              zIndex: 6,
+              color: "#3f5a36",
+            }
+          : {
+              position: "fixed",
+              left: anchorPos.left,
+              top: anchorPos.top,
+              transform: "translateX(-50%)",
+              zIndex: 6,
+              color: "#3f5a36",
+            }
       }
     >
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 10,
+        }}
+      >
         <LiaLongArrowAltUpSolid size={28} style={{ color: "#3f5a36" }} />
-        <div ref={anchorRef} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <Image src="/favicon.ico" alt="favicon" width={28} height={28} style={{ borderRadius: 6, marginTop: 2, boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }} />
-          <span style={{ fontWeight: 700, fontSize: 14, textTransform: "uppercase", letterSpacing: 0.6 }}>my resume</span>
+        <div
+          ref={anchorRef}
+          style={{ display: "flex", alignItems: "center", gap: 8 }}
+        >
+          <Image
+            src="/favicon.ico"
+            alt="favicon"
+            width={28}
+            height={28}
+            style={{
+              borderRadius: 6,
+              marginTop: 2,
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+            }}
+          />
+          <span
+            style={{
+              fontWeight: 700,
+              fontSize: 14,
+              textTransform: "uppercase",
+              letterSpacing: 0.6,
+            }}
+          >
+            my resume
+          </span>
         </div>
       </div>
     </div>
   );
 }
-
-

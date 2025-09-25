@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 interface AnimatedTitleProps {
   texts?: string[];
@@ -12,17 +12,17 @@ interface AnimatedTitleProps {
 
 export default function AnimatedTitle({
   texts = [
-    'Yathin Mrudul',
-    'Software Engineer',
-    'Sacramento Kings Fan',
-    'Daniel Caesar Enthusiast'
+    "Yathin Mrudul",
+    "Software Engineer",
+    "Sacramento Kings Fan",
+    "Daniel Caesar Enthusiast",
   ],
   typeSpeed = 80,
   deleteSpeed = 50,
   pauseDuration = 2250,
-  className = ''
+  className = "",
 }: AnimatedTitleProps) {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
@@ -33,7 +33,9 @@ export default function AnimatedTitle({
       if (currentCharIndex < texts[currentTextIndex].length) {
         setIsActivelyTyping(true);
         const timer = setTimeout(() => {
-          setDisplayText(texts[currentTextIndex].slice(0, currentCharIndex + 1));
+          setDisplayText(
+            texts[currentTextIndex].slice(0, currentCharIndex + 1),
+          );
           setCurrentCharIndex(currentCharIndex + 1);
         }, typeSpeed);
         return () => clearTimeout(timer);
@@ -46,7 +48,9 @@ export default function AnimatedTitle({
       if (currentCharIndex > 0) {
         setIsActivelyTyping(true);
         const timer = setTimeout(() => {
-          setDisplayText(texts[currentTextIndex].slice(0, currentCharIndex - 1));
+          setDisplayText(
+            texts[currentTextIndex].slice(0, currentCharIndex - 1),
+          );
           setCurrentCharIndex(currentCharIndex - 1);
         }, deleteSpeed);
         return () => clearTimeout(timer);
@@ -59,16 +63,24 @@ export default function AnimatedTitle({
         return () => clearTimeout(timer);
       }
     }
-  }, [currentCharIndex, isTyping, currentTextIndex, texts, typeSpeed, deleteSpeed, pauseDuration]);
+  }, [
+    currentCharIndex,
+    isTyping,
+    currentTextIndex,
+    texts,
+    typeSpeed,
+    deleteSpeed,
+    pauseDuration,
+  ]);
 
   return (
     <div className={`block whitespace-nowrap relative ${className}`}>
       <div className="absolute bottom-0 left-0 right-0">
         {displayText}
-        <span className={`typewriter-cursor ${isActivelyTyping ? 'no-blink' : ''}`}></span>
+        <span
+          className={`typewriter-cursor ${isActivelyTyping ? "no-blink" : ""}`}
+        ></span>
       </div>
     </div>
   );
 }
-
-

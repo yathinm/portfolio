@@ -44,7 +44,9 @@ export default function AboutPage() {
     ],
   } as const;
   return (
-    <main style={{ width: "100%", minHeight: "100vh", backgroundColor: "#ffffff" }}>
+    <main
+      style={{ width: "100%", minHeight: "100vh", backgroundColor: "#ffffff" }}
+    >
       {/* Hero Section */}
       <section
         style={{
@@ -55,9 +57,7 @@ export default function AboutPage() {
           gridTemplateColumns: "1fr",
           rowGap: 24,
         }}
-      >
-
-      </section>
+      ></section>
 
       {/* Intro/Bio Section */}
       <section
@@ -66,10 +66,8 @@ export default function AboutPage() {
           margin: "0 auto",
           padding: "8px 16px 24px",
         }}
-      >
-      </section>
+      ></section>
 
-      
       {/* Education Section */}
       <section
         style={{
@@ -78,7 +76,14 @@ export default function AboutPage() {
           padding: "12px 16px 24px",
         }}
       >
-        <h2 className="title-strong" style={{ fontSize: "clamp(1.3rem, 2.6vw, 2rem)", color: "#3f5a36", margin: 0 }}>
+        <h2
+          className="title-strong"
+          style={{
+            fontSize: "clamp(1.3rem, 2.6vw, 2rem)",
+            color: "#3f5a36",
+            margin: 0,
+          }}
+        >
           Education
         </h2>
         <div
@@ -113,7 +118,15 @@ export default function AboutPage() {
                 placeItems: "center",
               }}
             >
-              <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 14, overflow: "hidden" }}>
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 14,
+                  overflow: "hidden",
+                }}
+              >
                 <Image
                   src={UCSDTriton}
                   alt="UC San Diego Triton statue"
@@ -124,18 +137,50 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 10, minWidth: 0 }}>
-              <div style={{ color: "#3f5a36", fontWeight: 900, fontSize: "clamp(1.1rem, 2.2vw, 1.6rem)"}}>
-              University of California, San Diego
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+                minWidth: 0,
+              }}
+            >
+              <div
+                style={{
+                  color: "#3f5a36",
+                  fontWeight: 900,
+                  fontSize: "clamp(1.1rem, 2.2vw, 1.6rem)",
+                }}
+              >
+                University of California, San Diego
               </div>
-              <div style={{ color: "#2f4730", fontWeight: 700, fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)" }}>
+              <div
+                style={{
+                  color: "#2f4730",
+                  fontWeight: 700,
+                  fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
+                }}
+              >
                 Class of 2027/2028
               </div>
-              <div style={{ color: "#2f4730", fontStyle: "italic", fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)" }}>
+              <div
+                style={{
+                  color: "#2f4730",
+                  fontStyle: "italic",
+                  fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
+                }}
+              >
                 B.S. Math-Computer Science
               </div>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 6 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 10,
+                  marginTop: 6,
+                }}
+              >
                 {[
                   "Data Structures + OOP",
                   "System Programming and Software Tools",
@@ -167,7 +212,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-
       {/* Skills Section */}
       <section
         style={{
@@ -176,13 +220,39 @@ export default function AboutPage() {
           padding: "12px 16px 24px",
         }}
       >
-        <h2 className="title-strong" style={{ fontSize: "clamp(1.3rem, 2.6vw, 2rem)", color: "#3f5a36", margin: 0 }}>
+        <h2
+          className="title-strong"
+          style={{
+            fontSize: "clamp(1.3rem, 2.6vw, 2rem)",
+            color: "#3f5a36",
+            margin: 0,
+          }}
+        >
           My Toolkit
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12" style={{ marginTop: 18 }}>
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          style={{ marginTop: 18 }}
+        >
           <div>
-            <h3 style={{ fontSize: 20, fontWeight: 800, margin: 0, color: "#3f5a36" }}>Programming Languages</h3>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
+            <h3
+              style={{
+                fontSize: 20,
+                fontWeight: 800,
+                margin: 0,
+                color: "#3f5a36",
+              }}
+            >
+              Programming Languages
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 12,
+              }}
+            >
               {toolkit.languages.map((item) => (
                 <span
                   key={item}
@@ -201,8 +271,24 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <h3 style={{ fontSize: 20, fontWeight: 800, margin: "26px 0 0", color: "#3f5a36" }}>Databases</h3>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
+            <h3
+              style={{
+                fontSize: 20,
+                fontWeight: 800,
+                margin: "26px 0 0",
+                color: "#3f5a36",
+              }}
+            >
+              Databases
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 12,
+              }}
+            >
               {toolkit.databases.map((item) => (
                 <span
                   key={item}
@@ -223,8 +309,24 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h3 style={{ fontSize: 20, fontWeight: 800, margin: 0, color: "#3f5a36" }}>Libraries & Frameworks</h3>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
+            <h3
+              style={{
+                fontSize: 20,
+                fontWeight: 800,
+                margin: 0,
+                color: "#3f5a36",
+              }}
+            >
+              Libraries & Frameworks
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 12,
+              }}
+            >
               {toolkit.frameworks.map((item) => (
                 <span
                   key={item}
@@ -243,8 +345,24 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <h3 style={{ fontSize: 20, fontWeight: 800, margin: "26px 0 0", color: "#3f5a36" }}>Technologies & Tools</h3>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
+            <h3
+              style={{
+                fontSize: 20,
+                fontWeight: 800,
+                margin: "26px 0 0",
+                color: "#3f5a36",
+              }}
+            >
+              Technologies & Tools
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 12,
+              }}
+            >
               {toolkit.tools.map((item) => (
                 <span
                   key={item}
@@ -265,9 +383,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
-
-

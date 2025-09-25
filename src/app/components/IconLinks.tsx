@@ -10,7 +10,7 @@ export default function IconLinks() {
         target="_blank"
         href="https://www.linkedin.com/in/yathinmrudul"
         className="hover:scale-115 transition-all duration-250 ease-out"
-        style={{ color: '#3f5a36' }}
+        style={{ color: "#3f5a36" }}
       >
         <FaLinkedin className="text-4xl" />
       </a>
@@ -18,7 +18,7 @@ export default function IconLinks() {
         target="_blank"
         href="https://github.com/yathinm"
         className="hover:scale-115 transition-all duration-250 ease-out"
-        style={{ color: '#3f5a36' }}
+        style={{ color: "#3f5a36" }}
       >
         <FaGithub className="text-4xl" />
       </a>
@@ -26,7 +26,7 @@ export default function IconLinks() {
         href="mailto:yathinm@gmail.com"
         aria-label="Email"
         className="hover:scale-115 transition-all duration-250 ease-out"
-        style={{ color: '#3f5a36' }}
+        style={{ color: "#3f5a36" }}
       >
         <MdEmail className="text-4xl" />
       </a>
@@ -35,7 +35,7 @@ export default function IconLinks() {
         target="_blank"
         rel="noopener noreferrer"
         className="hover:scale-115 transition-all duration-250 ease-out"
-        style={{ color: '#3f5a36' }}
+        style={{ color: "#3f5a36" }}
         aria-label="Resume"
         id="resume-icon"
         title="Open resume"
@@ -45,5 +45,3 @@ export default function IconLinks() {
     </div>
   );
 }
-
-

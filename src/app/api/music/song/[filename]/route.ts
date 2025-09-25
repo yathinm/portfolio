@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 
 export async function GET(
   _req: NextRequest,
-  context: { params: Promise<{ filename: string }> }
+  context: { params: Promise<{ filename: string }> },
 ) {
   const { filename } = await context.params;
   const safeName = decodeURIComponent(filename);
@@ -14,7 +14,7 @@ export async function GET(
     "app",
     "components",
     "Songs",
-    safeName
+    safeName,
   );
 
   const file = await fs.readFile(filePath);
@@ -27,5 +27,3 @@ export async function GET(
     },
   });
 }
-
-
