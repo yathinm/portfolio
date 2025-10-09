@@ -1,6 +1,7 @@
 import Image from "next/image";
 import UCSDTriton from "../components/AboutPage/UCSD_Triton.png";
 import Headshot from "../components/AboutPage/YathinMrudulHeadshot.JPG";
+import styles from "./about.module.css";
 
 export default function AboutPage() {
   const toolkit = {
@@ -87,14 +88,7 @@ export default function AboutPage() {
             color: "#2f4730",
           }}
         >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "minmax(220px, 340px) 1fr",
-              gap: 18,
-              alignItems: "stretch",
-            }}
-          >
+          <div className={styles.aboutGrid}>
             <div
               style={{
                 width: "100%",
@@ -187,14 +181,7 @@ export default function AboutPage() {
             border: "1px solid #dfe7db",
           }}
         >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "minmax(200px, 280px) 1fr",
-              gap: 16,
-              alignItems: "stretch",
-            }}
-          >
+          <div className={styles.eduGrid}>
             <div
               className="float-y"
               style={{
@@ -291,7 +278,7 @@ export default function AboutPage() {
                       border: "1px solid #dfe7db",
                       fontWeight: 600,
                       fontSize: 14,
-                      whiteSpace: "nowrap",
+                      whiteSpace: "normal",
                     }}
                   >
                     {course}

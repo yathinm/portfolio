@@ -1,0 +1,24 @@
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.eduGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .aboutGrid {
+    grid-template-columns: minmax(220px, 340px) 1fr;
+  }
+  .eduGrid {
+    grid-template-columns: minmax(200px, 280px) 1fr;
+  }
+}
+
+
