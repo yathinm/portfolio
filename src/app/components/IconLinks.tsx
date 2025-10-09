@@ -2,6 +2,7 @@
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail, MdDescription } from "react-icons/md";
+import ResumePdf from "@/app/components/Resume/Yathin_Mrudul_Resume.pdf";
 
 export default function IconLinks() {
   return (
@@ -31,7 +32,7 @@ export default function IconLinks() {
         <MdEmail className="text-4xl" />
       </a>
       <a
-        href="/api/resume"
+        href={ResumePdf as unknown as string}
         target="_blank"
         rel="noopener noreferrer"
         className="hover:scale-115 transition-all duration-250 ease-out"

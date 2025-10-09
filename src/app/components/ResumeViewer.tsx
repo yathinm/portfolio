@@ -1,15 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import ResumePdf from "@/app/components/Resume/Yathin_Mrudul_Resume.pdf";
 
 export default function ResumeViewer() {
   const [zoom, setZoom] = useState(1);
 
   const iframeSrc = useMemo(() => {
-    // Use built-in PDF viewer params to hide toolbar and fit page
-    const base = "/api/resume";
-    // Fallback to built-in viewer features (may vary by browser)
-    // Using #page=1&zoom=auto helps initial fit
+    const base = (ResumePdf as unknown as string) || "/";
     return `${base}#page=1&zoom=${Math.round(zoom * 100)}%`;
   }, [zoom]);
 
@@ -84,7 +82,7 @@ export default function ResumeViewer() {
           </button>
         </div>
         <a
-          href="/api/resume?download=1"
+          href={ResumePdf as unknown as string}
           style={{
             color: "#3f5a36",
             textDecoration: "underline",
