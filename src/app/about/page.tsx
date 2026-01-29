@@ -239,7 +239,7 @@ export default function AboutPage() {
                   fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
                 }}
               >
-                Class of 2027/2028
+                Class of 2027
               </div>
               <div
                 style={{
@@ -248,7 +248,7 @@ export default function AboutPage() {
                   fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
                 }}
               >
-                B.S. Math-Computer Science
+                B.S. Math-Computer Science, Minor in Data Science
               </div>
 
               <div
