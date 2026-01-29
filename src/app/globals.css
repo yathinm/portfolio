@@ -75,9 +75,8 @@ body {
 }
 
 /* Strong display title styling */
-.panton-loaded .title-strong {
+.title-strong {
   font-family:
-    "Panton Rust Black Base",
     var(--font-geist-sans),
     system-ui,
     -apple-system,
@@ -87,8 +86,6 @@ body {
     Arial,
     "Apple Color Emoji",
     "Segoe UI Emoji";
-}
-.title-strong {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -101,12 +98,3 @@ body {
   color: #3f5a36;
 }
 
-@font-face {
-  font-family: "Panton Rust Black Base";
-  src:
-    url("/fonts/PantonRust-BlackBase.woff2") format("woff2"),
-    url("/fonts/PantonRust-BlackBase.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}

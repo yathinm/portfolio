@@ -1,9 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { NextRequest } from "next/server";
 
 export async function GET(
-  _req: NextRequest,
+  _req: Request,
   context: { params: Promise<{ filename: string }> },
 ) {
   const { filename } = await context.params;

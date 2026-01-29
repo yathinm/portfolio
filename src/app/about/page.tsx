@@ -267,7 +267,6 @@ export default function AboutPage() {
                   "Abstract Algebra",
                   "Multivariable Calculus",
                   "Linear Algebra",
-                  "Principles of Data Science",
                   "Mathematical Reasoning",
                   "Computer Organization",
                 ].map((course) => (
