@@ -260,8 +260,11 @@ export default function AboutPage() {
                 }}
               >
                 {[
-                  "Data Structures + OOP",
-                  "System Programming and Software Tools",
+                  "Data Structures + Object-Oriented Design",
+                  "Systems Programming and Software Tools",
+                  "Discrete Math and Graph Theory",
+                  "Principles of Data Science",
+                  "Abstract Algebra",
                   "Multivariable Calculus",
                   "Linear Algebra",
                   "Principles of Data Science",
