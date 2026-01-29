@@ -10,13 +10,12 @@ export default function AboutPage() {
       "Python",
       "JavaScript",
       "TypeScript",
-      "HTML",
-      "CSS",
       "SQL",
-      "LaTeX",
-      "Bash",
       "C#",
       "C++",
+      "Go",
+      "Kotlin",
+      "Swift"
     ],
     frameworks: [
       "React",
@@ -24,23 +23,24 @@ export default function AboutPage() {
       "Pandas",
       "Tailwind",
       "NumPy",
-      "Node.js",
       "Flask",
       "Next.js",
-    ],
-    databases: ["PostgreSQL", "Firebase", "Supabase"],
-    tools: [
-      "Git",
-      "Figma",
-      "Google Suite",
-      "Google Cloud Platform",
-      "OpenAI",
-      "PostgreSQL",
-      "Firebase",
-      "Docker",
-      "Gradle",
+      "Node.js",
       "CI/CD",
       "Agile",
+      "Rails",
+      ".NET",
+    ],
+    tools: [
+      "REST APIs",
+      "Git",
+      "Google Cloud Platform",
+      "PostgreSQL",
+      "Firebase",
+      "Azure",
+      "AWS",
+      "Linux",
+      "MySQL",
     ],
   } as const;
   return (
@@ -352,41 +352,6 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <h3
-              style={{
-                fontSize: 20,
-                fontWeight: 800,
-                margin: "26px 0 0",
-                color: "#3f5a36",
-              }}
-            >
-              Databases
-            </h3>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 10,
-                marginTop: 12,
-              }}
-            >
-              {toolkit.databases.map((item) => (
-                <span
-                  key={item}
-                  style={{
-                    padding: "8px 12px",
-                    borderRadius: 999,
-                    background: "#f5f7f4",
-                    color: "#3f5a36",
-                    border: "1px solid #dfe7db",
-                    fontWeight: 600,
-                    fontSize: 14,
-                  }}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
           </div>
 
           <div>
