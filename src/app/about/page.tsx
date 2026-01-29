@@ -352,6 +352,41 @@ export default function AboutPage() {
               ))}
             </div>
 
+            <h3
+              style={{
+                fontSize: 20,
+                fontWeight: 800,
+                margin: "26px 0 0",
+                color: "#3f5a36",
+              }}
+            >
+              Technologies & Tools
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 12,
+              }}
+            >
+              {toolkit.tools.map((item) => (
+                <span
+                  key={item}
+                  style={{
+                    padding: "8px 12px",
+                    borderRadius: 999,
+                    background: "#f5f7f4",
+                    color: "#3f5a36",
+                    border: "1px solid #dfe7db",
+                    fontWeight: 600,
+                    fontSize: 14,
+                  }}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div>
@@ -374,42 +409,6 @@ export default function AboutPage() {
               }}
             >
               {toolkit.frameworks.map((item) => (
-                <span
-                  key={item}
-                  style={{
-                    padding: "8px 12px",
-                    borderRadius: 999,
-                    background: "#f5f7f4",
-                    color: "#3f5a36",
-                    border: "1px solid #dfe7db",
-                    fontWeight: 600,
-                    fontSize: 14,
-                  }}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <h3
-              style={{
-                fontSize: 20,
-                fontWeight: 800,
-                margin: "26px 0 0",
-                color: "#3f5a36",
-              }}
-            >
-              Technologies & Tools
-            </h3>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 10,
-                marginTop: 12,
-              }}
-            >
-              {toolkit.tools.map((item) => (
                 <span
                   key={item}
                   style={{
