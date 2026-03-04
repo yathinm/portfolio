@@ -1,6 +1,6 @@
 import Image from "next/image";
 import UCSDTriton from "../components/AboutPage/UCSD_Triton.png";
-import Headshot from "../components/AboutPage/YathinMrudulHeadshot.JPG";
+import Headshot from "../components/AboutPage/Yathin_Mrudul_Headshot.jpg";
 import styles from "./about.module.css";
 
 export default function AboutPage() {
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 alt="Portrait of Yathin"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                style={{ objectFit: "cover", objectPosition: "center" }}
+                style={{ objectFit: "cover", objectPosition: "center", transform: "scale(1.2)" }}
                 priority
               />
             </div>
