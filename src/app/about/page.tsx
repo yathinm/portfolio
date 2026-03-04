@@ -105,7 +105,7 @@ export default function AboutPage() {
                 alt="Portrait of Yathin"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                style={{ objectFit: "cover", objectPosition: "center", transform: "scale(1.2)" }}
+                style={{ objectFit: "cover", objectPosition: "center" }}
                 priority
               />
             </div>
@@ -130,8 +130,7 @@ export default function AboutPage() {
               >
                 Hi! My name is Yathin, and I&apos;m a Math–Computer Science student at the 
                 University of California, San Diego, hoping to pursue a full‑time
-                career in software engineering. I&apos;m originally from Sacramento,
-                but beyond my passion for tech, I&apos;m someone who finds balance in
+                career in software engineering. Beyond my passion for tech, I&apos;m someone who finds balance in
                 discipline and creativity!
               </p>
               <p
