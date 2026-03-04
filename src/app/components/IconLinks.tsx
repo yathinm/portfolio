@@ -1,6 +1,6 @@
 "use client";
 
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaSpotify } from "react-icons/fa";
 import { MdEmail, MdDescription } from "react-icons/md";
 
 export default function IconLinks() {
@@ -41,6 +41,15 @@ export default function IconLinks() {
         title="Open resume"
       >
         <MdDescription className="text-4xl" />
+      </a>
+      <a
+        target="_blank"
+        href="https://open.spotify.com/user/12ezk5ctw9w1nrb123un4lci3?si=367ed5647b54417c"
+        className="hover:scale-115 transition-all duration-250 ease-out"
+        style={{ color: "#3f5a36" }}
+        aria-label="Spotify"
+      >
+        <FaSpotify className="text-4xl" />
       </a>
     </div>
   );
