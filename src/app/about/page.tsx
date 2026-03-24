@@ -220,15 +220,16 @@ export default function AboutPage() {
                 }}
               >
                 {[
+                  "Design & Analysis of Algorithms",
+                  "Advanced Data Structures",
                   "Data Structures + Object-Oriented Design",
                   "Systems Programming and Software Tools",
+                  "Computer Organization",
                   "Discrete Math and Graph Theory",
                   "Principles of Data Science",
-                  "Abstract Algebra",
                   "Multivariable Calculus",
                   "Linear Algebra",
                   "Mathematical Reasoning",
-                  "Computer Organization",
                 ].map((course) => (
                   <span
                     key={course}
