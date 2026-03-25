@@ -1,31 +1,25 @@
 import Image from "next/image";
-import UCSDTriton from "../components/AboutPage/UCSD_Triton.png";
 import Headshot from "../components/AboutPage/Yathin_Mrudul_Headshot.jpg";
 import styles from "./about.module.css";
 
 export default function AboutPage() {
   return (
     <main
-      style={{ width: "100%", minHeight: "100vh", backgroundColor: "#ffffff" }}
+      style={{
+        width: "100%",
+        minHeight: "100vh",
+        backgroundColor: "#ffffff",
+        display: "flex",
+        alignItems: "center",
+      }}
     >
-      {/* Hero Section */}
-      <section
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "48px 16px 24px",
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          rowGap: 24,
-        }}
-      ></section>
-
       {/* Intro/Bio Section */}
       <section
         style={{
+          width: "100%",
           maxWidth: 1100,
           margin: "0 auto",
-          padding: "8px 16px 24px",
+          padding: "16px",
         }}
       >
         <h2
@@ -113,145 +107,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section
-        style={{
-          maxWidth: 1100,
-          margin: "0 auto",
-          padding: "12px 16px 24px",
-        }}
-      >
-        <h2
-          className="title-strong"
-          style={{
-            fontSize: "clamp(1.3rem, 2.6vw, 2rem)",
-            color: "#3f5a36",
-            margin: 0,
-          }}
-        >
-          Education
-        </h2>
-        <div
-          style={{
-            marginTop: 16,
-            background: "#f5f7f4",
-            borderRadius: 16,
-            padding: 16,
-            boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
-            border: "1px solid #dfe7db",
-          }}
-        >
-          <div className={styles.eduGrid}>
-            <div
-              className="float-y"
-              style={{
-                width: "100%",
-                height: "clamp(180px, 28vw, 320px)",
-                borderRadius: 14,
-                background: "transparent",
-                border: "none",
-                boxShadow: "none",
-                padding: 0,
-                display: "grid",
-                placeItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 14,
-                  overflow: "hidden",
-                }}
-              >
-                <Image
-                  src={UCSDTriton}
-                  alt="UC San Diego Triton statue"
-                  fill
-                  priority
-                  style={{ objectFit: "contain", objectPosition: "center" }}
-                />
-              </div>
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 10,
-                minWidth: 0,
-              }}
-            >
-              <div
-                style={{
-                  color: "#3f5a36",
-                  fontWeight: 900,
-                  fontSize: "clamp(1.1rem, 2.2vw, 1.6rem)",
-                }}
-              >
-                University of California, San Diego
-              </div>
-              <div
-                style={{
-                  color: "#2f4730",
-                  fontWeight: 700,
-                  fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
-                }}
-              >
-                Class of 2027
-              </div>
-              <div
-                style={{
-                  color: "#2f4730",
-                  fontStyle: "italic",
-                  fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
-                }}
-              >
-                B.S. Math-Computer Science, Minor in Data Science
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: 10,
-                  marginTop: 6,
-                }}
-              >
-                {[
-                  "Design & Analysis of Algorithms",
-                  "Advanced Data Structures",
-                  "Data Structures + Object-Oriented Design",
-                  "Systems Programming and Software Tools",
-                  "Computer Organization",
-                  "Discrete Math and Graph Theory",
-                  "Principles of Data Science",
-                  "Multivariable Calculus",
-                  "Linear Algebra",
-                  "Mathematical Reasoning",
-                ].map((course) => (
-                  <span
-                    key={course}
-                    style={{
-                      padding: "8px 12px",
-                      borderRadius: 999,
-                      background: "#f5f7f4",
-                      color: "#3f5a36",
-                      border: "1px solid #dfe7db",
-                      fontWeight: 600,
-                      fontSize: 14,
-                      whiteSpace: "normal",
-                    }}
-                  >
-                    {course}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
