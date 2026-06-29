@@ -5,7 +5,9 @@ import { StaticImageData } from "next/image";
 import GrooveLabPreview from "./ProjectPreviews/GrooveLabPreview.png";
 import NBADraftHubPreview from "./ProjectPreviews/NBADraftHubPreview.png";
 import NBAMVPRankerPreview from "./ProjectPreviews/NBAMVPRankerPreview.png";
+import NovaSREPreview from "./ProjectPreviews/NovaSREPreview.png";
 import PantryPilotPreview from "./ProjectPreviews/PantryPilotPreview.png";
+import PlatesPreview from "./ProjectPreviews/PlatesPreview.png";
 import PortfolioPreview from "./ProjectPreviews/PortfolioPreview.png";
 import UCSDAkpsiPreview from "./ProjectPreviews/UCSDAkpsiPreview.png";
 
@@ -18,9 +20,67 @@ export type ProjectItem = {
   tags: string[];
   demoUrl?: string;
   codeUrl?: string;
+  imageObjectFit?: "cover" | "contain";
 };
 
 export const projects: ProjectItem[] = [
+  {
+    src: NovaSREPreview,
+    alt: "Nova SRE",
+    title: "Nova SRE",
+    description:
+      "A local Kubernetes-based SRE diagnostics platform that ingests GitHub webhooks, runs CI failure analysis through Kubernetes jobs and an AI diagnostic agent, and surfaces results, metrics, and PR comment feedback in a React control panel.",
+    why: "I wanted to learn how CI/CD systems fail in real environments and how SRE tooling can make debugging faster. I built Nova-SRE to connect GitHub webhooks, Kubernetes jobs, observability, and AI diagnostics into one local pipeline.",
+    tags: [
+      "Go",
+      "Kubernetes",
+      "Minikube",
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "OpenAI",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Terraform",
+      "Prometheus",
+      "Grafana",
+      "Docker",
+      "GitHub Webhooks",
+      "GitHub API",
+      "REST APIs",
+      "CI/CD",
+    ],
+    codeUrl: "https://github.com/yathinm/nova-sre",
+  },
+  {
+    src: PlatesPreview,
+    alt: "Plates",
+    title: "Plates",
+    description:
+      "An offline-first workout tracking app for fast strength-session logging, with a React Native/Expo frontend, local persistence, background sync scaffolding, and a Fastify API backed by PostgreSQL, TimescaleDB, Redis, and Prisma.",
+    why: "I didn't like the gym tracking app I was using, so I wanted to try creating one for myself. I built Plates to make workout logging feel faster, cleaner, and more focused on the set-by-set flow I actually use in the gym.",
+    tags: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "NativeWind",
+      "Zustand",
+      "WatermelonDB",
+      "Fastify",
+      "Node.js",
+      "PostgreSQL",
+      "TimescaleDB",
+      "Redis",
+      "Prisma",
+      "JWT Auth",
+      "WebSockets",
+      "Docker",
+      "Offline Sync",
+    ],
+    codeUrl: "https://github.com/yathinm/plates",
+    imageObjectFit: "contain",
+  },
   {
     src: PantryPilotPreview,
     alt: "PantryPilot",

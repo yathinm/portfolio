@@ -73,7 +73,7 @@ export default function ProjectGrid() {
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 style={{
-                  objectFit: "cover",
+                  objectFit: project.imageObjectFit ?? "cover",
                   objectPosition: "center",
                   transform: hoveredIndex === idx ? "scale(1.025)" : "scale(1)",
                   transition: "transform 220ms ease",

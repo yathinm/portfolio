@@ -85,7 +85,7 @@ export default function AboutPage() {
               >
                 Hi! My name is Yathin, and I&apos;m a Math–Computer Science student at the 
                 University of California, San Diego, hoping to pursue a full‑time
-                career in software engineering. Beyond my passion for tech, I&apos;m someone who finds balance in
+                career in software engineering. Currently, I&apos;m a Software Engineer Intern at Microsoft, working on the Azure Data Factory team. Beyond my passion for tech, I&apos;m someone who finds balance in
                 discipline and creativity!
               </p>
               <p
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 }}
               >
                 In my free time, I enjoy spending my time at the gym, where I&apos;m currently running
-                a PPL × Arnold split; expressing myself through music by playing
+                an Arnold split; expressing myself through music by playing
                 the bass guitar and drums; and listening to artists like Daniel
                 Caesar and much more.
               </p>
