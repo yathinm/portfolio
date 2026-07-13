@@ -46,7 +46,7 @@ export default function AboutPage() {
           <div className={styles.aboutGrid}>
             <div
               style={{
-                width: "100%",
+                width: "min(100%, 320px)",
                 height: "clamp(220px, 30vw, 360px)",
                 borderRadius: 14,
                 overflow: "hidden",

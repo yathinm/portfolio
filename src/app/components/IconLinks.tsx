@@ -5,14 +5,14 @@ import { MdEmail, MdDescription } from "react-icons/md";
 
 export default function IconLinks() {
   return (
-    <div className="flex justify-start items-center gap-6 mt-5">
+    <div className="flex justify-start items-center gap-8 sm:gap-6 mt-5">
       <a
         target="_blank"
         href="https://www.linkedin.com/in/yathinmrudul"
         className="hover:scale-115 transition-all duration-250 ease-out"
         style={{ color: "#3f5a36" }}
       >
-        <FaLinkedin className="text-4xl" />
+        <FaLinkedin className="text-5xl sm:text-4xl" />
       </a>
       <a
         target="_blank"
@@ -20,7 +20,7 @@ export default function IconLinks() {
         className="hover:scale-115 transition-all duration-250 ease-out"
         style={{ color: "#3f5a36" }}
       >
-        <FaGithub className="text-4xl" />
+        <FaGithub className="text-5xl sm:text-4xl" />
       </a>
       <a
         href="mailto:yathinm@gmail.com"
@@ -28,7 +28,7 @@ export default function IconLinks() {
         className="hover:scale-115 transition-all duration-250 ease-out"
         style={{ color: "#3f5a36" }}
       >
-        <MdEmail className="text-4xl" />
+        <MdEmail className="text-5xl sm:text-4xl" />
       </a>
       <a
         href="/Yathin_Mrudul_Resume.pdf"
@@ -40,7 +40,7 @@ export default function IconLinks() {
         id="resume-icon"
         title="Open resume"
       >
-        <MdDescription className="text-4xl" />
+        <MdDescription className="text-5xl sm:text-4xl" />
       </a>
       <a
         target="_blank"
@@ -49,7 +49,7 @@ export default function IconLinks() {
         style={{ color: "#3f5a36" }}
         aria-label="Spotify"
       >
-        <FaSpotify className="text-4xl" />
+        <FaSpotify className="text-5xl sm:text-4xl" />
       </a>
     </div>
   );

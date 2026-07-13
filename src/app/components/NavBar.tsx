@@ -20,9 +20,9 @@ export default function NavBar() {
   return (
     <nav
       className="pointer-events-auto"
-      style={{ position: "absolute", top: 24, right: 32, zIndex: 10 }}
+      style={{ position: "absolute", top: 24, right: "clamp(12px, 4vw, 32px)", zIndex: 10 }}
     >
-      <ul className="flex items-center gap-8">
+      <ul className="flex items-center gap-4 sm:gap-8">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
           return (
@@ -32,7 +32,7 @@ export default function NavBar() {
                 className="animated-title title-strong transition-colors duration-200"
                 style={{
                   opacity: isActive ? 1 : 0.85,
-                  fontSize: "clamp(.5rem, 1.5vw, 1.8rem)",
+                  fontSize: "clamp(1rem, 3vw, 1.8rem)",
                 }}
               >
                 {link.name}
