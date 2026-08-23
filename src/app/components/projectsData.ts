@@ -145,8 +145,8 @@ export const projects: ProjectItem[] = [
     alt: "Portfolio",
     title: "Portfolio",
     description:
-      "My personal portfolio website showcasing my projects, favorite music, about me, and resume utilizing a modern stack of React, Next.js, and Tailwind CSS.",
-    why: "My resume can list my skills, but it can't tell the full story behind my work. I built this portfolio to give my projects context, offering a deeper look into the problems I solved, and my personal life as well.",
+      "My personal portfolio website showcasing my projects, favorite music, and about me utilizing a modern stack of React, Next.js, and Tailwind CSS.",
+    why: "I built this portfolio to give my projects context, offering a deeper look into the problems I solved, and my personal life as well.",
     tags: [
       "TypeScript",
       "React",
