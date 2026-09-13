@@ -20,7 +20,12 @@ export default function NavBar() {
   return (
     <nav
       className="pointer-events-auto"
-      style={{ position: "absolute", top: 24, right: "clamp(12px, 4vw, 32px)", zIndex: 10 }}
+      style={{
+        position: "absolute",
+        top: 24,
+        right: "clamp(12px, 4vw, 32px)",
+        zIndex: 10,
+      }}
     >
       <ul className="flex items-center gap-4 sm:gap-8">
         {navLinks.map((link) => {

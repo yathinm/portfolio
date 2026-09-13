@@ -1,5 +1,3 @@
-"use client";
-
 import { StaticImageData } from "next/image";
 
 import GrooveLabPreview from "./ProjectPreviews/GrooveLabPreview.png";

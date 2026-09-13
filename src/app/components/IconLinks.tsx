@@ -1,5 +1,3 @@
-"use client";
-
 import { FaLinkedin, FaGithub, FaSpotify } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
