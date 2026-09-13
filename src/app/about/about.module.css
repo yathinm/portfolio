@@ -6,22 +6,10 @@
   justify-items: center;
 }
 
-.eduGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  align-items: stretch;
-}
-
 @media (min-width: 768px) {
   .aboutGrid {
     grid-template-columns: minmax(220px, 340px) 1fr;
     justify-items: stretch;
     align-items: center;
   }
-  .eduGrid {
-    grid-template-columns: minmax(200px, 280px) 1fr;
-  }
 }
-
-

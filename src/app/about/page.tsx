@@ -13,7 +13,6 @@ export default function AboutPage() {
         alignItems: "center",
       }}
     >
-      {/* Intro/Bio Section */}
       <section
         style={{
           width: "100%",
@@ -106,7 +105,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
