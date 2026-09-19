@@ -82,12 +82,11 @@ export default function AboutPage() {
                   fontWeight: 600,
                 }}
               >
-                Hi! My name is Yathin, and I&apos;m a Math–Computer Science
-                student at the University of California, San Diego, hoping to
-                pursue a full‑time career in software engineering. This summer,
-                I interned as a Software Engineering Intern at Microsoft on the
-                Azure Data Factory team. Beyond my passion for tech, I&apos;m
-                someone who finds balance in discipline and creativity!
+                Hi! My name is Yathin, and I&apos;m a Mathematics–Computer Science
+                student at the University of California, San Diego. Currently, I&apos;m a Software Engineer 
+                Intern at Amazon on the One Medical team. This past summer,
+                I interned as a Software Engineer Intern at Microsoft on the
+                Azure Data Factory team.
               </p>
               <p
                 style={{
@@ -99,9 +98,7 @@ export default function AboutPage() {
                 }}
               >
                 In my free time, I enjoy spending my time at the gym, where
-                I&apos;m currently running an Arnold split; expressing myself
-                through music by playing the bass guitar and drums; and
-                listening to artists like Daniel Caesar and much more.
+                I&apos;m currently running an Arnold split, and playing the bass guitar and drums.
               </p>
             </div>
           </div>
